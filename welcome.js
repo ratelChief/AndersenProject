@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = function(message) {
-  console(`welcome ${message}`);
+  console.log(`welcome ${message}`);
 };
