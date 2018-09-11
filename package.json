@@ -13,8 +13,12 @@
   },
   "author": "ASD",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0"
+  },
   "devDependencies": {
+    "babel-loader": "^7.1.5",
     "css-loader": "^1.0.0",
     "eslint": "^5.5.0",
     "eslint-config-htmlacademy": "^0.5.2",

@@ -23,5 +23,13 @@ module.exports = {
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify(NODE_ENV)
     })
-  ]
+  ],
+
+  module: {
+    rules: [{
+      test: /\.js$/,
+      loader: 'babel-loader'
+    }]
+  }
+
 };
