@@ -1,5 +1,5 @@
 'use strict';
 
-let welcome = require('./welome');
+let welcome = require('./welcome');
 
 welcome('home');
