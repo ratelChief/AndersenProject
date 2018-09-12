@@ -29,26 +29,27 @@ module.exports = {
   module: {
     rules: [{
       test: /\.js$/,
+      exclude: [/node_modules/],
       loader: 'babel-loader'
     }]
   }
 
 };
 
-if(NODE_ENV == 'production') {
-  module.exports = {
-    optimization : {
-      minimizer: [
-        new UglifyJsPlugin({
-          uglifyOptions: {
-            compress: {
-              warnings: false,
-              drop_console: true,
-              unsafe: true
-            }
-          }
-        })
-      ]
-    }
-  }
-}
+// if(NODE_ENV == 'production') {
+//   module.exports = {
+//     optimization : {
+//       minimizer: [
+//         new UglifyJsPlugin({
+//           uglifyOptions: {
+//             compress: {
+//               warnings: false,
+//               drop_console: true,
+//               unsafe: true
+//             }
+//           }
+//         })
+//       ]
+//     }
+//   }
+// }
