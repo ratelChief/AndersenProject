@@ -1,8 +1,6 @@
-'use strict';
-
-const NODE_ENV = process.env.NODE_ENV || 'development';
 const webpack = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
   entry: "./home", //что собирать
@@ -18,7 +16,7 @@ module.exports = {
     aggregateTimeout: 100
   },
 
-  devtool: NODE_ENV == 'development' ? "source-map" : null, // соурс мэп работает только, если окружение - девелопмнт, если продакшн - то соурс мэп отсутствует
+  devtool: "source-map", // соурс мэп работает только, если окружение - девелопмнт, если продакшн - то соурс мэп отсутствует
 
   plugins : [
     new webpack.DefinePlugin({
@@ -35,21 +33,3 @@ module.exports = {
   }
 
 };
-
-// if(NODE_ENV == 'production') {
-//   module.exports = {
-//     optimization : {
-//       minimizer: [
-//         new UglifyJsPlugin({
-//           uglifyOptions: {
-//             compress: {
-//               warnings: false,
-//               drop_console: true,
-//               unsafe: true
-//             }
-//           }
-//         })
-//       ]
-//     }
-//   }
-// }
