@@ -2,6 +2,7 @@
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   entry: "./home", //что собирать
@@ -33,3 +34,21 @@ module.exports = {
   }
 
 };
+
+if(NODE_ENV == 'production') {
+  module.exports = {
+    optimization : {
+      minimizer: [
+        new UglifyJsPlugin({
+          uglifyOptions: {
+            compress: {
+              warnings: false,
+              drop_console: true,
+              unsafe: true
+            }
+          }
+        })
+      ]
+    }
+  }
+}
