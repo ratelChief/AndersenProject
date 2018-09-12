@@ -1,5 +1,5 @@
 export default function(message) {
-  if(NODE_ENV == 'development'){
+  if(NODE_ENV == 'development') {
     console.log(message);
   }
   console.log(`welcome ${message}`);

@@ -3,7 +3,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
-  entry: "./home", //что собирать
+  entry: __dirname + "/src/home", //что собирать
   output: {
     path: __dirname + "/public", // куда выводить
     filename: "build.js", // имя файла

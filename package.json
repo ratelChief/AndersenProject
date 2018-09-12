@@ -15,7 +15,8 @@
   "license": "ISC",
   "dependencies": {
     "babel": "^6.23.0",
-    "babel-cli": "^6.26.0"
+    "babel-cli": "^6.26.0",
+    "save-dev": "^2.0.0"
   },
   "devDependencies": {
     "babel-loader": "^7.1.5",
