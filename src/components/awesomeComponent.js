@@ -1,28 +1,31 @@
 import React, { Component } from 'react';
 import './style.less';
+import { connect } from 'react-redux';
 
 class AwesomeComponent extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = { likesCount: 0 };
-    this.onLike = this.onLike.bind(this);
-  }
-
-  onLike() {
-    const newLikesCount = this.state.likesCount + 1;
-    this.setState({ likesCount: newLikesCount });
+  addLike() {
+    this.props.onAddLike(this.likesCount++);
   }
 
   render() {
     return (
-      <div className='likes'>
-        Likes : <span>{this.state.likesCount}</span>
-        <div><button onClick={this.onLike}>Like Me</button></div>
+      <div>
+        <div className='likes'>{this.props.testStore.likesCount}</div>
+        <button className='addLike' onClick={this.addLike.bind(this)}>Add like</button>
       </div>
     );
   }
-
 }
 
-export default AwesomeComponent;
+
+export default connect(
+  state => ({
+    testStore: state
+  }), //mapStateToProps - мапит состояние стора в пропс компонента
+  dispatch => ({
+    onAddLike: () => {
+      dispatch({ type: 'ADD_LIKE' });
+    }
+  })
+)(AwesomeComponent);
