@@ -2,16 +2,17 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
-const postCssLoader = {
-    loader: 'postcss-loader',
-    options: {
-        plugins: [
-            require('autoprefixer')({
-                browsers: ['last 2 versions']
-            })
-        ],
-    }
-};
+// const postCssLoader = {
+//     loader: 'postcss-loader',
+//     options: {
+//         ident: 'postcss',
+//         plugins: [
+//             require('autoprefixer')({
+//                 browsers: ['last 2 versions']
+//             })
+//         ],
+//     }
+// };
 
 module.exports = {
   entry: __dirname + '/src/index.js', //что собирать
@@ -28,7 +29,7 @@ module.exports = {
 
   devtool: 'source-map', // соурс мэп работает только, если окружение - девелопмнт, если продакшн - то соурс мэп отсутствует
 
-  plugins : [
+  plugins: [
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify(NODE_ENV)
     }),
@@ -46,7 +47,7 @@ module.exports = {
     },
     {
       test: /\.less$/,
-            use: ['style-loader', 'css-loader', postCssLoader, 'less-loader']
-        }]
-      }
+      use: ['style-loader', 'css-loader', postCssLoader, 'less-loader']
+    }]
+  }
 };
