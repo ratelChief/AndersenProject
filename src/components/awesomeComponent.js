@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class AwesomeComponent extends Component {
 
   addLike() {
-    this.props.onAddLike(this.likesCount++);
+    this.props.onAddLike(this.props.testStore.likesCount++);
   }
 
   render() {
@@ -17,7 +17,6 @@ class AwesomeComponent extends Component {
     );
   }
 }
-
 
 export default connect(
   state => ({
