@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import AwesomeComponent from './components/AwesomeComponent.js';
 
 class App extends Component {
   render() {
-    return <p> Hello React project</p>;
+    return (
+      <div>
+         <p> Hello React project</p>
+        <AwesomeComponent />
+      </div>
+    );
   }
 }
 
