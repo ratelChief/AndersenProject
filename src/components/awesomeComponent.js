@@ -9,7 +9,7 @@ class AwesomeComponent extends Component {
   }
 
   onLike() {
-    let newLikesCount = this.state.likesCount + 1;
+    const newLikesCount = this.state.likesCount + 1;
     this.setState({ likesCount: newLikesCount });
   }
 

@@ -1,6 +1,6 @@
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
@@ -21,12 +21,15 @@ module.exports = {
   plugins : [
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify(NODE_ENV)
+    }),
+    new HtmlWebpackPlugin({
+      template: './public/index.html'
     })
   ],
 
   module: {
     rules: [{
-      test: /\.js$/,
+      test: /\.(js|jsx)$/,
       include: [/src/],
       exclude: [/node_modules/],
       loader: 'babel-loader'
