@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "none",
   "main": "index.js",
+  "browserslist": [
+    "last 2 versions"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --mode development --open --hot"
@@ -14,6 +17,7 @@
   "author": "ASD",
   "license": "ISC",
   "dependencies": {
+    "autoprefixer": "^9.1.5",
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
     "react": "^16.5.1",

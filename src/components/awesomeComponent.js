@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import s from './style.less';
+import './style.less';
+
 class AwesomeComponent extends Component {
 
   constructor(props) {
@@ -15,7 +16,7 @@ class AwesomeComponent extends Component {
 
   render() {
     return (
-      <div className ='likes'>
+      <div className='likes'>
         Likes : <span>{this.state.likesCount}</span>
         <div><button onClick={this.onLike}>Like Me</button></div>
       </div>

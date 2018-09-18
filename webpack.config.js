@@ -1,18 +1,18 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const autoprefixer = require('autoprefixer');
+const postCssLoader = {
+    loader: 'postcss-loader',
+    options: {
+        plugins: [
+            autoprefixer({
+                browsers: ['last 2 versions']
+            })
+        ],
+    }
+};
 const NODE_ENV = process.env.NODE_ENV || 'development';
-// const postCssLoader = {
-//     loader: 'postcss-loader',
-//     options: {
-//         ident: 'postcss',
-//         plugins: [
-//             require('autoprefixer')({
-//                 browsers: ['last 2 versions']
-//             })
-//         ],
-//     }
-// };
 
 module.exports = {
   entry: __dirname + '/src/index.js', //что собирать
@@ -46,8 +46,8 @@ module.exports = {
       loader: 'babel-loader'
     },
     {
-      test: /\.less$/,
+      test: /\.(css|less)$/,
       use: ['style-loader', 'css-loader', postCssLoader, 'less-loader']
-    }]
-  }
+    }
+  ] }
 };
