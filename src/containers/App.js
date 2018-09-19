@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import './style.less';
 import { connect } from 'react-redux';
+import { Remove } from '../components/Remove';
 
-class AwesomeComponent extends Component {
+import { addLike, removeLike } from '../actions/likeActions';
+
+class App extends Component {
 
   render() {
     return (
       <div>
       <div className='likes'>{this.props.testStore.likesCount}</div>
       <button className='addLike' onClick={this.props.onAddLike}>Add like</button>
-      <button className='removeLike' onClick={this.props.onRemoveLike}>Remove like</button>
+      <Remove onRemoveLike={() => this.props.onRemoveLike()} />
       </div>
     );
   }
@@ -21,10 +24,10 @@ export default connect(
   }), //mapStateToProps - мапит состояние стора в пропс компонента
   dispatch => ({
     onAddLike: () => {
-      dispatch({ type: 'ADD_LIKE', payload: 1 });
+      dispatch(addLike(1));
     },
     onRemoveLike: () => {
-      dispatch({ type: 'REMOVE_LIKE', payload: 1 });
+      dispatch(removeLike(1));
     }
   }) //mapDispatchToProps
-)(AwesomeComponent);
+)(App);
