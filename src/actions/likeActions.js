@@ -1,7 +1,11 @@
 export function addLike(like) {
-  return {
-    type: 'ADD_LIKE',
-    payload: like
+  return dispatch => {
+    setTimeout(() => {
+      dispatch({
+        type: 'ADD_LIKE',
+        payload: like
+      });
+    }, 2000);
   };
 }
 
