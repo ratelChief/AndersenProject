@@ -1,32 +1,45 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {render} from 'react-dom';
 import { Provider } from 'react-redux';
-import AwesomeComponent from './components/AwesomeComponent.js';
+import AwesomeComponent from './components/AwesomeComponent';
 import { createStore } from 'redux';
 
 const initialState = {
   likesCount: 0
 };
 
-function likesCount(state = initialState, action) {
-  if (action.type === 'SHOW_LIKE') {
-    return {
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'SHOW_LIKE':
+    state = {
       ...state,
       likesCount: state.likesCount
     };
-  }
-  if (action.type === 'ADD_LIKE') {
-    return {
+    break;
+    case 'ADD_LIKE':
+    state = {
       ...state,
-      likesCount: state.likesCount++
+      likesCount: state.likesCount + action.payload
     };
+    break;
+    case 'REMOVE_LIKE':
+    state = {
+      ...state,
+      likesCount: state.likesCount - action.payload
+    };
+    break;
+    default: return state;
   }
   return state;
-}
+};
 
-const store = createStore(likesCount, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()); //хранилище всех данных в нашем приложении и любые данные храним в сторе
+const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()); //хранилище всех данных в нашем приложении и любые данные храним в сторе //// принимает редюсер и первоначальное состояние
 
-ReactDOM.render(
+store.subscribe(() => {
+  console.log('Store updated', store.getState());
+});
+
+render(
   <Provider store={store}>
     <AwesomeComponent />
   </Provider>,

@@ -4,15 +4,27 @@ import { connect } from 'react-redux';
 
 class AwesomeComponent extends Component {
 
-  addLike() {
-    this.props.onAddLike(this.props.testStore.likesCount++);
+  constructor() {
+    super();
+    this.addLike = this.addLike.bind(this);
+    this.removeLike = this.removeLike.bind(this);
   }
+
+  addLike() {
+    this.props.onAddLike(this.props.testStore.likesCount);
+  }
+
+  removeLike() {
+    this.props.onRemoveLike(this.props.testStore.likesCount);
+  }
+
 
   render() {
     return (
       <div>
-        <div className='likes'>{this.props.testStore.likesCount}</div>
-        <button className='addLike' onClick={this.addLike.bind(this)}>Add like</button>
+      <div className='likes'>{this.props.testStore.likesCount}</div>
+      <button className='addLike' onClick={this.addLike}>Add like</button>
+      <button className='removeLike' onClick={this.removeLike}>Remove like</button>
       </div>
     );
   }
@@ -24,7 +36,10 @@ export default connect(
   }), //mapStateToProps - мапит состояние стора в пропс компонента
   dispatch => ({
     onAddLike: () => {
-      dispatch({ type: 'ADD_LIKE' });
+      dispatch({ type: 'ADD_LIKE', payload: 1 });
+    },
+    onRemoveLike: () => {
+      dispatch({ type: 'REMOVE_LIKE', payload: 1 });
     }
   }) //mapDispatchToProps
 )(AwesomeComponent);
