@@ -26,5 +26,5 @@ export default connect(
     onAddLike: () => {
       dispatch({ type: 'ADD_LIKE' });
     }
-  })
+  }) //mapDispatchToProps
 )(AwesomeComponent);
