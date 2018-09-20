@@ -6,5 +6,5 @@ export const Main = props =>
   <p className='app-desc'>Use form below to search for houses to buy.
      You can search be place-name, postcode, or click 'My location, to search
       in your currect location'</p>
-      <Form />
+      <Form props={props.status} />
 </main>;

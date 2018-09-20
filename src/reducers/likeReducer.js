@@ -1,4 +1,4 @@
- const reducer = (state = {
+ export const likeReducer = (state = {
   likesCount: 0
 }, action) => {
   switch (action.type) {
@@ -24,5 +24,3 @@
   }
   return state;
 };
-
-export default reducer;
