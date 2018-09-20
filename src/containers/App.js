@@ -9,11 +9,11 @@ import { addLike, removeLike } from '../actions/likeActions';
 class App extends Component {
 
   render() {
+    const { getStatus } = this.props;
     return (
       <div>
         <Header />
-        <Main data={location.status} />
-        {location.status}
+        <Main data={getStatus} />
       </div>
     );
   }
@@ -21,7 +21,7 @@ class App extends Component {
 
 const mapStateToProps = state =>
 ({
-  location: state
+  getStatus: state.locationReducer.status
 });
 //const mapDispatchToProps =
 export default connect(
