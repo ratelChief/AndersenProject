@@ -1,12 +1,6 @@
 export const FETCH_LOCATIONS = 'FETCH_LOCATIONS';
-export const FETCH_SUCCESS = 'FETCH_SUCCESS';
-
-export function getLocations() {
-  return {
-    type: FETCH_SUCCESS,
-    payload: 200
-  };
-}
+export const FETCH_LOCATIONS_SUCCESS = 'FETCH_LOCATIONS_SUCCESS';
+export const FETCH_LOCATIONS_ERROR = 'FETCH_LOCATIONS_ERROR';
 
 export const fetchLocation = () => {
   return dispatch => {

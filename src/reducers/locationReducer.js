@@ -10,11 +10,13 @@ export const locationReducer = (state = {}, action) => {
   return state;
 };
 
-export const fetchLocations = (state = [], action) => {
+export const fetchLocations = (state = {
+  locations: []
+}, action) => {
   if (action.type === FETCH_LOCATIONS) {
     state = {
       ...state,
-      locationData: action.payload.response
+      locations: action.payload.response.locations
     };
   }
   return state;

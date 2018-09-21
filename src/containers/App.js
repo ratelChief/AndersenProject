@@ -3,23 +3,19 @@ import './style.less';
 import { connect } from 'react-redux';
 import { Header } from '../components/Header';
 import { Main } from '../components/Main';
-import { toggleStatus } from '../actions/StatusBarActions';
+import * as toggleStatus from '../actions/StatusBarActions';
 import { fetchLocation } from '../actions/locationActions';
 
 class App extends Component {
 
   render() {
     const { getStatus, onGoButton, getData, locationsArray } = this.props;
-
-      // const locationList = locationsArray.map(location =>
-      //   <li>{location.thanks}</li>);
+    const locationList = locationsArray.map(location =>
+    <a href='#' key={location.place_name}>{location.title}</a>);
     return (
       <div>
         <Header />
-        <Main data={getStatus} onGoButton={onGoButton} />
-        <button onClick={getData} type='button'>click</button>
-        {/* <ul>{locationList}</ul> */}
-        <div>{locationsArray.application_response_code}</div>
+        <Main data={getStatus} onGoButton={onGoButton} locationList = {locationList}/>
       </div>
     );
   }
@@ -27,12 +23,13 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   getStatus: state.statusBarReducer.status,
-  locationsArray: state.fetchLocations
+  locationsArray: state.fetchLocations.locations
 });
 
 const mapDispatchToProps = dispatch => ({
   onGoButton: () => {
-    dispatch(toggleStatus());
+    dispatch(toggleStatus.toggleStatusOnSuccess());
+    dispatch(fetchLocation());
   },
   getData: () => {
     dispatch(fetchLocation());
