@@ -1,13 +1,26 @@
-const initialState = {
-  status: 'Recent searches'
-};
-
-export const locationReducer = (state = initialState, action) => {
-  if (action.type === 'SWITCH_STATUS') {
+ export const locationReducer = (state = {
+  likesCount: 0
+}, action) => {
+  switch (action.type) {
+    case 'SHOW_LIKE':
     state = {
       ...state,
-      status: action.payload
+      likesCount: state.likesCount
     };
+    break;
+    case 'ADD_LIKE':
+    state = {
+      ...state,
+      likesCount: state.likesCount + action.payload
+    };
+    break;
+    case 'REMOVE_LIKE':
+    state = {
+      ...state,
+      likesCount: state.likesCount - action.payload
+    };
+    break;
+    default: return state;
   }
   return state;
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Form = ({ data }, { onGoButton }) =>
+export const Form = ({ data, onGoButton }) =>
 <form className='page-form'>
   <input type='text' className='search-input' />
   <button type='button' className='btn btn--search' onClick={onGoButton}>Go</button>
