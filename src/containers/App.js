@@ -4,17 +4,21 @@ import { connect } from 'react-redux';
 import { Header } from '../components/Header';
 import { Main } from '../components/Main';
 import { toggleStatus } from '../actions/StatusBarActions';
-import { getLocations } from '../actions/locationActions'
+import { fetchLocation } from '../actions/locationActions';
 
 class App extends Component {
 
   render() {
     const { getStatus, onGoButton, getData, locations } = this.props;
+
+     const locationList = locations.map(location =>
+       <li key={location.id}>{location.name}</li>);
     return (
       <div>
         <Header />
         <Main data={getStatus} onGoButton={onGoButton} />
-        <button onClick={getData} type='button'>click{locations}</button>
+        <button onClick={getData} type='button'>click</button>
+        <ul>{locationList}</ul>
       </div>
     );
   }
@@ -22,7 +26,7 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   getStatus: state.statusBarReducer.status,
-  locations: state.locationReducer.data
+  locations: state.fetchLocations
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -30,7 +34,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(toggleStatus());
   },
   getData: () => {
-    dispatch(getLocations());
+    dispatch(fetchLocation());
   }
 });
 

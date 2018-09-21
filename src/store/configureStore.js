@@ -1,11 +1,10 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
-import { statusBarReducer } from '../reducers/statusBarReducer';
-import { locationReducer } from '../reducers/locationReducer';
+import rootReducer from './combineReducers';
 
 
 export default createStore(
-  combineReducers({ statusBarReducer, locationReducer }),
+  rootReducer,
   composeWithDevTools(applyMiddleware(thunk)));
  //хранилище всех данных в нашем приложении и любые данные храним в сторе //// принимает редюсер и первоначальное состояние
