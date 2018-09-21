@@ -1,26 +1,9 @@
- export const locationReducer = (state = {
-  likesCount: 0
-}, action) => {
-  switch (action.type) {
-    case 'SHOW_LIKE':
-    state = {
-      ...state,
-      likesCount: state.likesCount
-    };
-    break;
-    case 'ADD_LIKE':
-    state = {
-      ...state,
-      likesCount: state.likesCount + action.payload
-    };
-    break;
-    case 'REMOVE_LIKE':
-    state = {
-      ...state,
-      likesCount: state.likesCount - action.payload
-    };
-    break;
-    default: return state;
-  }
+export const locationReducer = (state = {}, action) => {
+   if (action.type === 'FETCH_SUCCESS') {
+     state = {
+       ...state,
+       data: action.payload
+     };
+   }
   return state;
 };

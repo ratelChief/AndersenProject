@@ -1,8 +1,4 @@
-const initialState = {
-  status: 'Recent searches'
-};
-
-export const statusBarReducer = (state = initialState, action) => {
+export const statusBarReducer = (state = { status: 'Recent searches' }, action) => {
   if (action.type === 'SWITCH_STATUS') {
     state = {
       ...state,
