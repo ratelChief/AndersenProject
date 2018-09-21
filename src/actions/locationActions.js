@@ -10,12 +10,12 @@ export function getLocations() {
 
 export const fetchLocation = () => {
   return dispatch => {
-    fetch('https://jsonplaceholder.typicode.com/users')
+    fetch('https://api.nestoria.co.uk/api?country=uk&pretty=1&action=search_listings&encoding=json&listing_type=buy&page=1&place_name=leeds', { mode: 'cors' })
     .then(res => res.json())
-    .then(users => {
+    .then(locations => {
       dispatch({
         type: FETCH_LOCATIONS,
-        payload: users
+        payload: locations
       });
     });
   };

@@ -9,16 +9,17 @@ import { fetchLocation } from '../actions/locationActions';
 class App extends Component {
 
   render() {
-    const { getStatus, onGoButton, getData, locations } = this.props;
+    const { getStatus, onGoButton, getData, locationsArray } = this.props;
 
-     const locationList = locations.map(location =>
-       <li key={location.id}>{location.name}</li>);
+      // const locationList = locationsArray.map(location =>
+      //   <li>{location.thanks}</li>);
     return (
       <div>
         <Header />
         <Main data={getStatus} onGoButton={onGoButton} />
         <button onClick={getData} type='button'>click</button>
-        <ul>{locationList}</ul>
+        {/* <ul>{locationList}</ul> */}
+        <div>{locationsArray.application_response_code}</div>
       </div>
     );
   }
@@ -26,7 +27,7 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   getStatus: state.statusBarReducer.status,
-  locations: state.fetchLocations
+  locationsArray: state.fetchLocations
 });
 
 const mapDispatchToProps = dispatch => ({
