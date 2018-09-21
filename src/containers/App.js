@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Header } from '../components/Header';
 import { Main } from '../components/Main';
 import * as toggleStatus from '../actions/StatusBarActions';
-import { fetchLocation } from '../actions/locationActions';
+import { fetchLocationAction } from '../actions/locationActions';
 
 class App extends Component {
 
@@ -26,13 +26,13 @@ class App extends Component {
 
   const mapStateToProps = state => ({
     getStatus: state.statusBarReducer.status,
-    locationsArray: state.fetchLocations.locations
+    locationsArray: state.fetchLocationsReducer.locations
   });
 
   const mapDispatchToProps = dispatch => ({
     onGoButton: () => {
       dispatch(toggleStatus.toggleStatusOnSuccess());
-      dispatch(fetchLocation());
+      dispatch(fetchLocationAction());
     }
   });
 

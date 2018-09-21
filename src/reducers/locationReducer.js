@@ -1,18 +1,8 @@
-import { FETCH_LOCATIONS } from '../actions/locationActions';
-
-export const locationReducer = (state = {}, action) => {
-   if (action.type === 'FETCH_SUCCESS') {
-     state = {
-       ...state,
-       data: action.payload
-     };
-   }
-  return state;
-};
-
-export const fetchLocations = (state = {
+import { FETCH_LOCATIONS, FETCH_LOCATIONS_SUCCESS, FETCH_LOCATIONS_ERROR } from '../actions/locationActions';
+const initialState = {
   locations: []
-}, action) => {
+}
+export const fetchLocationsReducer = (state = initialState, action) => {
   if (action.type === FETCH_LOCATIONS) {
     state = {
       ...state,
@@ -21,3 +11,22 @@ export const fetchLocations = (state = {
   }
   return state;
 };
+//
+// export const fetchLocation = (state = initialState, action => {
+//   switch (action.type) {
+//     case FETCH_LOCATIONS_SUCCESS:
+//     state = {
+//       ...state,
+//       locations: action.payload.response.locations
+//     };
+//     break;
+//     case FETCH_LOCATIONS_ERROR:
+//     state = {
+//       ...state,
+//       locations: ''
+//     }
+//     default: return state;
+//
+//   }
+//   return state;
+// });
