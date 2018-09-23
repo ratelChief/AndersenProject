@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Header } from '../components/Header';
 import { Main } from '../components/Main';
-import * as toggleStatus from '../actions/statusBarActions';
 import { fetchLocationAction } from '../actions/locationActions';
 
 class App extends Component {
@@ -31,7 +30,6 @@ class App extends Component {
 
   const mapDispatchToProps = dispatch => ({
     onGoButton: () => {
-      dispatch(toggleStatus.toggleStatusOnSuccess());
       dispatch(fetchLocationAction());
     }
   });
