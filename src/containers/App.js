@@ -24,8 +24,8 @@ class App extends Component {
   }
 
   const mapStateToProps = state => ({
-    getStatus: state.locationsReducer.title,
-    locationsArray: state.locationsReducer.locations
+    getStatus: state.locations.title,
+    locationsArray: state.locations.locations
   });
 
   const mapDispatchToProps = dispatch => ({

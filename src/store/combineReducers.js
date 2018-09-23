@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { locationsReducer } from '../reducers/locationReducer';
 
 const rootReducer = combineReducers({
-  locationsReducer
+  locations: locationsReducer
 });
 
 export default rootReducer;
