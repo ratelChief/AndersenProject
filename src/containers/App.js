@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Header } from '../components/Header';
 import { Main } from '../components/Main';
-import * as toggleStatus from '../actions/StatusBarActions';
+import * as toggleStatus from '../actions/statusBarActions';
 import { fetchLocationAction } from '../actions/locationActions';
 
 class App extends Component {
@@ -25,8 +25,8 @@ class App extends Component {
   }
 
   const mapStateToProps = state => ({
-    getStatus: state.statusBarReducer.status,
-    locationsArray: state.fetchLocationsReducer.locations
+    getStatus: state.locationsReducer.title,
+    locationsArray: state.locationsReducer.locations
   });
 
   const mapDispatchToProps = dispatch => ({
@@ -37,6 +37,6 @@ class App extends Component {
   });
 
   export default connect(
-    mapStateToProps, //mapStateToProps - мапит состояние стора в пропс компонента
-    mapDispatchToProps //mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
   )(App);

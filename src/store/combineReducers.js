@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import { fetchLocationsReducer } from '../reducers/locationReducer';
+import { locationsReducer } from '../reducers/locationReducer';
 import { statusBarReducer } from '../reducers/statusBarReducer';
 
 const rootReducer = combineReducers({
-  fetchLocationsReducer,
+  locationsReducer,
   statusBarReducer
 });
 

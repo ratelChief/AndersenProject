@@ -1,4 +1,4 @@
-import { SWITCH_STATUS_ON_SUCCESS, SWITCH_STATUS_ON_ERROR, SWITCH_STATUS_DEFAULT } from '../actions/StatusBarActions';
+import { SWITCH_STATUS_ON_SUCCESS, SWITCH_STATUS_ON_ERROR, SWITCH_STATUS_DEFAULT } from '../actions/statusBarActions';
 
 const initialState = {
   status: 'Recent searches'
