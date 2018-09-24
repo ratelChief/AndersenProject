@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Header } from '../components/Header.jsx';
 import { Main } from '../components/Main.jsx';
 
-export class App extends Component {
+export default class App extends Component {
 
   render() {
     const { getStatus, onGoButton, locationsArray } = this.props;

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { AppComponent } from '../components/AppComponent.jsx';
+import AppComponent from '../components/AppComponent.jsx';
 import { fetchLocationAction } from '../actions/locationActions';
 
   const mapStateToProps = state => ({
