@@ -10,6 +10,7 @@ export class Form extends React.Component {
   }
 
   onGoButtonClick = () => {
+    debugger;
     this.props.onGoButton(this.state.placeName);
   }
 
@@ -17,7 +18,7 @@ export class Form extends React.Component {
     return (
       <form className='page-form'>
         <input type='text' className='search-input' onChange={this.onInputChanges} />
-        <button type='button' className='btn btn--search' onClick={this.onInputChange}>Go</button>
+        <button type='button' className='btn btn--search' onClick={this.onGoButtonClick}>Go</button>
         <button className='btn btn--location'>My location</button>
         <span className='status-bar'>{this.props.data}</span>
         <fieldset className='results'> {this.props.locationList} </fieldset>
