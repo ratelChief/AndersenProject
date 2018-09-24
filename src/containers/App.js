@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Header } from '../components/Header';
-import { Main } from '../components/Main';
+import { Header } from '../components/Header.jsx';
+import { Main } from '../components/Main.jsx';
 import { fetchLocationAction } from '../actions/locationActions';
 
 class App extends Component {
@@ -29,8 +29,8 @@ class App extends Component {
   });
 
   const mapDispatchToProps = dispatch => ({
-    onGoButton: () => {
-      dispatch(fetchLocationAction());
+    onGoButton: placeName => {
+      dispatch(fetchLocationAction(placeName));
     }
   });
 

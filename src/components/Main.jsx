@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form } from './Form';
+import { Form } from './Form.jsx';
 import styles from './Main.less';
 
 export const Main = ({ data, onGoButton, locationList }) =>
