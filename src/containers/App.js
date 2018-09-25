@@ -8,12 +8,6 @@ import { fetchLocationAction } from '../actions/locationActions';
     locationsArray: state.locations.locations
   });
 
-  // const mapDispatchToProps = dispatch => ({
-  //   onGoButton: placeName => {
-  //     dispatch(fetchLocationAction(placeName));
-  //   }
-  // });
-
   const mapDispatchToProps = {
     onGoButton: fetchLocationAction
   };

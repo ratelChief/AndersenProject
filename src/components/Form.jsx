@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './Form.less';
 
 export class Form extends React.Component {
     state = { placeName: '' };
@@ -15,12 +16,12 @@ export class Form extends React.Component {
 
   render() {
     return (
-      <form className='page-form'>
-        <input type='text' className='search-input' onChange={this.onInputChange} />
-        <button type='button' className='btn btn--search' onClick={this.onGoButtonClick}>Go</button>
-        <button className='btn btn--location'>My location</button>
-        <span className='status-bar'>{this.props.data}</span>
-        <fieldset className='results'> {this.props.locationList} </fieldset>
+      <form className={styles.pageForm}>
+        <input type='text' className={styles.searchInput} onChange={this.onInputChange} />
+        <button type='button' className={`${styles.btn} ${styles.search}`} onClick={this.onGoButtonClick}>Go</button>
+        <button className={`${styles.btn} ${styles.location}`}>My location</button>
+        <span className={styles.statusbar}>{this.props.data}</span>
+        <fieldset className={styles.results}>{this.props.locationList}</fieldset>
       </form>
     );
   }

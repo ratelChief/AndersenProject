@@ -8,7 +8,7 @@ export default class App extends Component {
   render() {
     const { getStatus, onGoButton, locationsArray } = this.props;
     const locationList = locationsArray.map(location =>
-      <a href='#' key={location.place_name}>{location.title}</a>);
+      <a href='#' className={styles.locationItem} key={location.place_name}>{location.title}</a>);
       return (
         <div className={styles.pageContainer}>
           <Header />
