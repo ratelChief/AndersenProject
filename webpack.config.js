@@ -3,25 +3,34 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const autoprefixer = require('autoprefixer');
 const postCssLoader = {
-    loader: 'postcss-loader',
-    options: {
-        plugins: [
-            autoprefixer({
-                browsers: ['last 2 versions']
-            })
-        ],
-    }
+  loader: 'postcss-loader',
+  options: {
+    plugins: [
+      autoprefixer({
+        browsers: ['last 2 versions']
+      })
+    ]
+  }
 };
+const cssLoader = {
+  loader: 'css-loader',
+  options: {
+    camelCase: true,
+    modules: true,
+    localIdentName: '[name]__[local]___[hash:base64:5]'
+  }
+};
+
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
-  entry: __dirname + '/src/index.js', //что собирать
+  entry: `${__dirname }/src/index.js`, //что собирать
   output: {
-    path: __dirname + '/public', // куда выводить
-    filename: 'bundle.js', // имя файла
+    path: `${__dirname }/public`, // куда выводить
+    filename: 'bundle.js' // имя файла
   },
 
-  watch: NODE_ENV == 'development', //включаем вотчер, только если окружение - девелопмент
+  watch: NODE_ENV === 'development', //включаем вотчер, только если окружение - девелопмент
 
   watchOptions: {
     aggregateTimeout: 100
@@ -47,7 +56,7 @@ module.exports = {
     },
     {
       test: /\.(css|less)$/,
-      use: ['style-loader', 'css-loader', postCssLoader, 'less-loader']
+      use: ['style-loader', cssLoader, postCssLoader, 'less-loader']
     }
   ] }
 };

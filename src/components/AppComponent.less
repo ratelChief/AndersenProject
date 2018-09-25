@@ -1,0 +1,34 @@
+.page-container {
+  margin: auto;
+  padding: 10px;
+
+  display: grid;
+
+  grid-template-areas:
+  " header"
+  " page-content"
+  " page-content";
+  grid-template-columns: 100%;
+  grid-template-rows: 10% 90%;
+
+  grid-row-gap: 20px;
+
+}
+
+.item-result {
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    font-weight: bold;
+  }
+}
+
+@media (min-width: 700px) {
+  .page-container {
+    width: 700px;
+    margin: auto;
+    padding: 10px;
+    padding-top: 30px;
+  }
+}
