@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Form.less';
 
 export class Form extends React.Component {
-    state = { placeName: '' };
+  state = { placeName: '' };
 
   onInputChange = evt => {
     this.setState({

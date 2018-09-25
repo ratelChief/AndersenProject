@@ -4,8 +4,10 @@ import styles from './Main.less';
 
 export const Main = ({ data, onGoButton, locationList }) =>
 <main className={styles.pageContent}>
-  <p className={styles.appDesc}>Use form below to search for houses to buy.
-     You can search be place-name, postcode, or click 'My location', to search
-      in your currect location</p>
-      <Form data={data} onGoButton={onGoButton} locationList={locationList} />
-</main>;
+  <p className={styles.appDesc}>Use form below to search for houses to buy. You can search be place-name, postcode, or click 'My location', to search in your currect location</p>
+  <Form
+    data={data}
+    onGoButton={onGoButton}
+    locationList={locationList}
+  />
+  </main>;
