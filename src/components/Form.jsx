@@ -4,12 +4,6 @@ import styles from './Form.less';
 export class Form extends React.Component {
   state = { placeName: '' };
 
-  handleSubmit = evt => {
-    if (evt.keyCode === 13) {
-      evt.preventDefault();
-    }
-  }
-
   onInputChange = evt => {
     this.setState({
       placeName: evt.target.value
@@ -28,7 +22,7 @@ export class Form extends React.Component {
 
   render() {
     return (
-      <form className={styles.pageForm} onKeyPress={this.handleSubmit}>
+      <form className={styles.pageForm}>
         <input type='text' className={styles.searchInput} onChange={this.onInputChange} />
         <button type='button' className={`${styles.btn} ${styles.search}`} onClick={this.onGoButtonClick} >Go</button>
         <button type='button' className={`${styles.btn} ${styles.location}`} onClick={this.onMyLocationClick}>My location</button>

@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import styles from './AppComponent.less';
 import { Header } from '../components/Header.jsx';
 import { Main } from '../components/Main.jsx';
+import uuidv4 from 'uuid/v4';
 
 export default class App extends Component {
+  static getDerivedStateFromProps(props, state) {
+    localStorage.setItem('1', JSON.stringify(props));
+    console.log(props);
+  }
 
   render() {
     const { getStatus, onGoButton, locationsArray, onMyLocationButton } = this.props;
     const locationList = locationsArray.map(location =>
-      <a href='#' className={styles.locationItem} key={location.place_name}>{location.title}</a>);
+      <a href='#' className={styles.locationItem} key={uuidv4()}>{location.title}</a>);
     return (
       <div className={styles.pageContainer}>
         <Header />
