@@ -1,6 +1,5 @@
 const fetchMiddleware = store => next => action => {
   if (action.request) {
-    console.log(action);
     action.request
       .then(data => data.json())
       .then(response => next({ type: `${action.type}_SUCCESS`, payload: response }))

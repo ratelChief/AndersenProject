@@ -14,14 +14,10 @@ export class Form extends React.Component {
     this.props.onGoButton(this.state.placeName);
   }
 
-  getMyLocation = () => {
-    this.setState({
-      locationData: navigator.geolocation.getCurrentPosition(pos => pos.geolocation)
-    });
-  }
-
   onMyLocationClick = () => {
-    this.props.onMyLocationButton(this.state.locationData);
+    navigator.geolocation.getCurrentPosition(pos => {
+      this.props.onMyLocationButton(pos.coords);
+    });
   }
 
   render() {
