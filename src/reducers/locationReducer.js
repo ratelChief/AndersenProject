@@ -1,4 +1,4 @@
-import { FETCH_LOCATIONS, FETCH_LOCATIONS_SUCCESS, FETCH_LOCATIONS_ERROR } from '../actions/locationActions';
+import * as constants from '../constants/location.constants';
 
 const initialState = {
   fetching: false,
@@ -11,33 +11,39 @@ const initialState = {
 export const locationsReducer = (state = initialState, action) => {
   switch (action.type) {
 
-    case FETCH_LOCATIONS:
-    state = {
+  case constants.FETCH_LOCATIONS:
+    return {
       ...state,
       fetching: true
     };
-    break;
 
-    case FETCH_LOCATIONS_SUCCESS:
-    state = {
+
+  case constants.FETCH_LOCATIONS_SUCCESS:
+    return {
       ...state,
       fetching: false,
       fetched: true,
       locations: action.payload.response.locations,
       title: 'Please select a location below:'
     };
-    break;
 
-    case FETCH_LOCATIONS_ERROR:
-    state = {
+  case constants.FETCH_LOCATIONS_ERROR:
+    return {
       ...state,
       fetching: false,
       error: action.payload,
       title: 'There was a problem with your search'
     };
-    break;
 
-    default: return state;
+  case constants.FETCH_MY_LOCATION_SUCCESS:
+    return {
+      ...state,
+      fetching: false,
+      fetched: true,
+      locations: action.payload.response.locations,
+      title: 'Please select a location below:'
+    };
+
+  default: return state;
   }
-  return state;
 };

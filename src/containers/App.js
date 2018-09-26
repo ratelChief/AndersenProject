@@ -1,18 +1,19 @@
 import { connect } from 'react-redux';
 
 import AppComponent from '../components/AppComponent.jsx';
-import { fetchLocationAction } from '../actions/locationActions';
+import * as locations from '../actions/locationActions';
 
-  const mapStateToProps = state => ({
-    getStatus: state.locations.title,
-    locationsArray: state.locations.locations
-  });
+const mapStateToProps = state => ({
+  getStatus: state.locations.title,
+  locationsArray: state.locations.locations
+});
 
-  const mapDispatchToProps = {
-    onGoButton: fetchLocationAction
-  };
+const mapDispatchToProps = {
+  onGoButton: locations.fetchLocationAction,
+  onMyLocationButton: locations.fetchMyLocationAction
+};
 
-  export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(AppComponent);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AppComponent);
