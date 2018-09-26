@@ -1,4 +1,4 @@
-import * as consts from '../consts/consts';
+import * as constants from '../constants/location.constants';
 
 const initialState = {
   fetching: false,
@@ -11,14 +11,14 @@ const initialState = {
 export const locationsReducer = (state = initialState, action) => {
   switch (action.type) {
 
-  case consts.FETCH_LOCATIONS:
+  case constants.FETCH_LOCATIONS:
     state = {
       ...state,
       fetching: true
     };
     break;
 
-  case consts.FETCH_LOCATIONS_SUCCESS:
+  case constants.FETCH_LOCATIONS_SUCCESS:
     state = {
       ...state,
       fetching: false,
@@ -28,7 +28,7 @@ export const locationsReducer = (state = initialState, action) => {
     };
     break;
 
-  case consts.FETCH_LOCATIONS_ERROR:
+  case constants.FETCH_LOCATIONS_ERROR:
     state = {
       ...state,
       fetching: false,
@@ -37,7 +37,7 @@ export const locationsReducer = (state = initialState, action) => {
     };
     break;
 
-  case consts.FETCH_MY_LOCATION_SUCCESS:
+  case constants.FETCH_MY_LOCATION_SUCCESS:
     state = {
       ...state,
       fetching: false,
