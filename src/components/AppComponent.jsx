@@ -6,18 +6,19 @@ import { Main } from '../components/Main.jsx';
 export default class App extends Component {
 
   render() {
-    const { getStatus, onGoButton, locationsArray } = this.props;
+    const { getStatus, onGoButton, locationsArray, onMyLocationButton } = this.props;
     const locationList = locationsArray.map(location =>
       <a href='#' className={styles.locationItem} key={location.place_name}>{location.title}</a>);
-      return (
-        <div className={styles.pageContainer}>
-          <Header />
-          <Main
-            data={ getStatus }
-            onGoButton={ onGoButton }
-            locationList={ locationList }
-          />
-        </div>
-      );
-    }
+    return (
+      <div className={styles.pageContainer}>
+        <Header />
+        <Main
+          data={ getStatus }
+          onGoButton={ onGoButton }
+          locationList={ locationList }
+          onMyLocationButton={ onMyLocationButton }
+        />
+      </div>
+    );
   }
+}

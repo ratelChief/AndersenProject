@@ -14,12 +14,22 @@ export class Form extends React.Component {
     this.props.onGoButton(this.state.placeName);
   }
 
+  getMyLocation = () => {
+    this.setState({
+      locationData: navigator.geolocation.getCurrentPosition()
+    });
+  }
+
+  onMyLocationClick = () => {
+    this.props.onMyLocationButton(this.state.getMyLocation);
+  }
+
   render() {
     return (
       <form className={styles.pageForm}>
         <input type='text' className={styles.searchInput} onChange={this.onInputChange} />
         <button type='button' className={`${styles.btn} ${styles.search}`} onClick={this.onGoButtonClick}>Go</button>
-        <button className={`${styles.btn} ${styles.location}`}>My location</button>
+        <button type='button' className={`${styles.btn} ${styles.location}`} onClick={this.onMyLocationClick}>My location</button>
         <span className={styles.statusbar}>{this.props.data}</span>
         <fieldset className={styles.results}>{this.props.locationList}</fieldset>
       </form>

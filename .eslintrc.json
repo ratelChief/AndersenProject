@@ -154,6 +154,7 @@
       "react/jsx-equals-spacing": 1,
       "react/jsx-no-undef": 2,
       "react/jsx-pascal-case": 1,
-      "react/jsx-space-before-closing": 1
+      "react/jsx-space-before-closing": 1,
+      "indent": ["error", 2]
   }
 }
