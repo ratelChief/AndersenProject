@@ -12,42 +12,38 @@ export const locationsReducer = (state = initialState, action) => {
   switch (action.type) {
 
   case constants.FETCH_LOCATIONS:
-    state = {
+    return {
       ...state,
       fetching: true
     };
-    break;
+
 
   case constants.FETCH_LOCATIONS_SUCCESS:
-    state = {
+    return {
       ...state,
       fetching: false,
       fetched: true,
       locations: action.payload.response.locations,
       title: 'Please select a location below:'
     };
-    break;
 
   case constants.FETCH_LOCATIONS_ERROR:
-    state = {
+    return {
       ...state,
       fetching: false,
       error: action.payload,
       title: 'There was a problem with your search'
     };
-    break;
 
   case constants.FETCH_MY_LOCATION_SUCCESS:
-    state = {
+    return {
       ...state,
       fetching: false,
       fetched: true,
       locations: action.payload.response.locations,
       title: 'Please select a location below:'
     };
-    break;
 
   default: return state;
   }
-  return state;
 };
