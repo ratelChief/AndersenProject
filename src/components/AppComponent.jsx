@@ -6,10 +6,17 @@ import uuidv4 from 'uuid/v4';
 
 export default class App extends Component {
 
+  state = {};
+
   static getDerivedStateFromProps(props, state) {
     if (props.locationsArray !== undefined) {
       try {
-        localStorage.setItem(JSON.stringify(props.locationsArray[0].place_name), JSON.stringify(props));
+        localStorage.setItem(JSON.stringify(props.searchInputValue), JSON.stringify(
+          [{
+            searchBy: props.searchInputValue,
+            length: props.locationsArray.length
+          }])
+        );
       } catch (err) {
         return null;
       }
