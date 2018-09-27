@@ -11,11 +11,14 @@ export default class App extends Component {
   static getDerivedStateFromProps(props, state) {
     if (props.locationsArray !== undefined) {
       try {
-        localStorage.setItem(JSON.stringify(props.searchInputValue), JSON.stringify(
-          [{
-            searchBy: props.searchInputValue,
-            length: props.locationsArray.length
-          }])
+        localStorage.setItem(
+          JSON.stringify(props.searchInputValue),
+          JSON.stringify(
+            [{
+              searchBy: props.searchInputValue,
+              length: props.locationsArray.length
+            }]
+          )
         );
       } catch (err) {
         return null;
