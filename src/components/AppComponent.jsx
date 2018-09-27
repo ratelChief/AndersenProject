@@ -8,30 +8,25 @@ export default class App extends Component {
 
   state = {};
 
-  static getDerivedStateFromProps(props, state) {
-    try {
-      if (localStorage.getItem('recentSearches') === null) {
-        localStorage.setItem(
-          'recentSearches',
-          JSON.stringify([])
-        );
-      }
-
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.searchInputValue &&
+      nextProps.searchInputValue !== prevState.searchInputValue) {
       localStorage.setItem('recentSearches', JSON.stringify(
         [...JSON.parse(localStorage.getItem('recentSearches')),
           {
-            searchBy: props.searchInputValue,
-            length: props.locationsArray.length
+            searchBy: nextProps.searchInputValue,
+            length: nextProps.locationsArray.length
           }
         ])
       );
-
-    } catch (err) {
-      return null;
+      return { searchInputValue: nextProps.searchInputValue };
     }
     return null;
   }
 
+  getItem = value => <a href='#' className={styles.locationItem} key={uuidv4()}>
+    {value}
+  </a>
   render() {
     const {
       getStatus,
@@ -43,17 +38,13 @@ export default class App extends Component {
 
     const locationList =
     locationsArray.map(
-      location =>
-        <a href='#' className={styles.locationItem} key={uuidv4()}>
-          {location.title}
-        </a>);
+      location => this.getItem(location.title)
+    );
 
     const recentSearchesList =
     recentSearches.map(
-      search =>
-        <a href='#' className={styles.locationItem} key={uuidv4()}>
-          {search.searchBy} ({search.length})
-        </a>);
+      search => this.getItem(`${search.searchBy} (${search.length})`)
+    );
 
     return (
       <div className={styles.pageContainer}>

@@ -21,10 +21,10 @@ export class Form extends React.Component {
   }
 
   showRecentSearch = () => {
-    if (this.props.locationList === null) {
-      return this.props.recentSearches;
+    if (this.props.locationList.length) {
+      return this.props.locationList;
     }
-    return this.props.locationList;
+    return this.props.recentSearches;
   }
 
   render() {
