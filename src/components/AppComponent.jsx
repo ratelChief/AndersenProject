@@ -5,9 +5,17 @@ import { Main } from '../components/Main.jsx';
 import uuidv4 from 'uuid/v4';
 
 export default class App extends Component {
+
   static getDerivedStateFromProps(props, state) {
-    localStorage.setItem('1', JSON.stringify(props));
     console.log(props);
+    if (props.locationsArray !== undefined) {
+      try {
+        localStorage.setItem(JSON.stringify(props.locationsArray[0].place_name), JSON.stringify(props));
+      } catch (err) {
+        return null;
+      }
+    }
+    return null;
   }
 
   render() {
