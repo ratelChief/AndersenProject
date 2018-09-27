@@ -7,7 +7,6 @@ import uuidv4 from 'uuid/v4';
 export default class App extends Component {
 
   static getDerivedStateFromProps(props, state) {
-    console.log(props);
     if (props.locationsArray !== undefined) {
       try {
         localStorage.setItem(JSON.stringify(props.locationsArray[0].place_name), JSON.stringify(props));
