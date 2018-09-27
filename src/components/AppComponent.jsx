@@ -9,20 +9,22 @@ export default class App extends Component {
   state = {};
 
   static getDerivedStateFromProps(props, state) {
-    if (props.locationsArray !== undefined) {
-      try {
-        localStorage.setItem(
-          JSON.stringify(props.searchInputValue),
-          JSON.stringify(
-            [{
-              searchBy: props.searchInputValue,
-              length: props.locationsArray.length
-            }]
-          )
-        );
-      } catch (err) {
-        return null;
+    try {
+      if (localStorage.getItem('recentSearches') === null) {
+        localStorage.setItem('recentSearches', JSON.stringify(
+          [{
+            searchBy: '',
+            length: ''
+          }]
+        ));
       }
+      localStorage.setItem('recentSearches', JSON.stringify(
+        JSON.parse(localStorage.getItem('recentSearches'))
+      )
+      );
+
+    } catch (err) {
+      return null;
     }
     return null;
   }
