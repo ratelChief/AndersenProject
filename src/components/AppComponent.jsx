@@ -11,7 +11,10 @@ export default class App extends Component {
   static getDerivedStateFromProps(props, state) {
     try {
       if (localStorage.getItem('recentSearches') === null) {
-        localStorage.setItem('recentSearches', JSON.stringify([]));
+        localStorage.setItem(
+          'recentSearches',
+          JSON.stringify([])
+        );
       }
 
       localStorage.setItem('recentSearches', JSON.stringify(
@@ -30,13 +33,27 @@ export default class App extends Component {
   }
 
   render() {
-    const { getStatus, onGoButton, locationsArray, onMyLocationButton, recentSearches } = this.props;
-    const locationList = locationsArray.map(location =>
-      <a href='#' className={styles.locationItem} key={uuidv4()}>{location.title}</a>);
-    const recentSearchesList = recentSearches.map(search =>
-      <a href='#' className={styles.locationItem}
-        key={uuidv4()}
-      >{search.searchBy} #({search.length})</a>);
+    const {
+      getStatus,
+      onGoButton,
+      locationsArray,
+      onMyLocationButton,
+      recentSearches
+    } = this.props;
+
+    const locationList =
+    locationsArray.map(
+      location =>
+        <a href='#' className={styles.locationItem} key={uuidv4()}>
+          {location.title}
+        </a>);
+
+    const recentSearchesList =
+    recentSearches.map(
+      search =>
+        <a href='#' className={styles.locationItem} key={uuidv4()}>
+          {search.searchBy} ({search.length})
+        </a>);
 
     return (
       <div className={styles.pageContainer}>
