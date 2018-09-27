@@ -11,16 +11,16 @@ export default class App extends Component {
   static getDerivedStateFromProps(props, state) {
     try {
       if (localStorage.getItem('recentSearches') === null) {
-        localStorage.setItem('recentSearches', JSON.stringify(
-          [{
-            searchBy: '',
-            length: ''
-          }]
-        ));
+        localStorage.setItem('recentSearches', JSON.stringify([]));
       }
+
       localStorage.setItem('recentSearches', JSON.stringify(
-        JSON.parse(localStorage.getItem('recentSearches'))
-      )
+        [...JSON.parse(localStorage.getItem('recentSearches')),
+          {
+            searchBy: props.searchInputValue,
+            length: props.locationsArray.length
+          }
+        ])
       );
 
     } catch (err) {
@@ -30,9 +30,14 @@ export default class App extends Component {
   }
 
   render() {
-    const { getStatus, onGoButton, locationsArray, onMyLocationButton } = this.props;
+    const { getStatus, onGoButton, locationsArray, onMyLocationButton, recentSearches } = this.props;
     const locationList = locationsArray.map(location =>
       <a href='#' className={styles.locationItem} key={uuidv4()}>{location.title}</a>);
+    const recentSearchesList = recentSearches.map(search =>
+      <a href='#' className={styles.locationItem}
+        key={uuidv4()}
+      >{search.searchBy} #({search.length})</a>);
+
     return (
       <div className={styles.pageContainer}>
         <Header />
@@ -41,6 +46,7 @@ export default class App extends Component {
           onGoButton={ onGoButton }
           locationList={ locationList }
           onMyLocationButton={ onMyLocationButton }
+          recentSearches={ recentSearchesList }
         />
       </div>
     );

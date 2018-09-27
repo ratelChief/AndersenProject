@@ -20,6 +20,13 @@ export class Form extends React.Component {
     });
   }
 
+  showRecentSearch = () => {
+    if (this.props.locationList === null) {
+      return this.props.recentSearches;
+    }
+    return this.props.locationList;
+  }
+
   render() {
     return (
       <form className={styles.pageForm}>
@@ -27,7 +34,7 @@ export class Form extends React.Component {
         <button type='button' className={`${styles.btn} ${styles.search}`} onClick={this.onGoButtonClick} >Go</button>
         <button type='button' className={`${styles.btn} ${styles.location}`} onClick={this.onMyLocationClick}>My location</button>
         <span className={styles.statusbar}>{this.props.data}</span>
-        <fieldset className={styles.results}>{this.props.locationList}</fieldset>
+        <fieldset className={styles.results}>{this.props.recentSearches}</fieldset>
       </form>
     );
   }
