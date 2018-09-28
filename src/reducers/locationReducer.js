@@ -5,7 +5,9 @@ const initialState = {
   fetched: false,
   error: null,
   locations: [],
-  title: 'Recent searches:'
+  title: 'Recent searches:',
+  searchedValue: '',
+  recentSearches: JSON.parse(localStorage.getItem(constants.RECENT_SEARCHES)) || []
 };
 
 export const locationsReducer = (state = initialState, action) => {
@@ -24,7 +26,8 @@ export const locationsReducer = (state = initialState, action) => {
       fetching: false,
       fetched: true,
       locations: action.payload.response.locations,
-      title: 'Please select a location below:'
+      title: 'Please select a location below:',
+      searchedValue: action.payload.request.location
     };
 
   case constants.FETCH_LOCATIONS_ERROR:

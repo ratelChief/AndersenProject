@@ -5,7 +5,9 @@ import * as locations from '../actions/locationActions';
 
 const mapStateToProps = state => ({
   getStatus: state.locations.title,
-  locationsArray: state.locations.locations
+  locationsArray: state.locations.locations,
+  searchInputValue: state.locations.searchedValue,
+  recentSearches: state.locations.recentSearches
 });
 
 const mapDispatchToProps = {

@@ -2,13 +2,51 @@ import React, { Component } from 'react';
 import styles from './AppComponent.less';
 import { Header } from '../components/Header.jsx';
 import { Main } from '../components/Main.jsx';
+import uuidv4 from 'uuid/v4';
+import * as constants from '../constants/location.constants';
 
 export default class App extends Component {
 
+  state = {};
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.searchInputValue &&
+      nextProps.searchInputValue !== prevState.searchInputValue) {
+      localStorage.setItem(constants.RECENT_SEARCHES, JSON.stringify(
+        [...JSON.parse(localStorage.getItem(constants.RECENT_SEARCHES)),
+          {
+            searchBy: nextProps.searchInputValue,
+            length: nextProps.locationsArray.length
+          }
+        ])
+      );
+      return { searchInputValue: nextProps.searchInputValue };
+    }
+    return null;
+  }
+
+  getItem = value => <a href='#' className={styles.locationItem} key={uuidv4()}>
+    {value}
+  </a>
   render() {
-    const { getStatus, onGoButton, locationsArray, onMyLocationButton } = this.props;
-    const locationList = locationsArray.map(location =>
-      <a href='#' className={styles.locationItem} key={location.place_name}>{location.title}</a>);
+    const {
+      getStatus,
+      onGoButton,
+      locationsArray,
+      onMyLocationButton,
+      recentSearches
+    } = this.props;
+
+    const locationList =
+    locationsArray.map(
+      location => this.getItem(location.title)
+    );
+
+    const recentSearchesList =
+    recentSearches.map(
+      search => this.getItem(`${search.searchBy} (${search.length})`)
+    );
+
     return (
       <div className={styles.pageContainer}>
         <Header />
@@ -17,6 +55,7 @@ export default class App extends Component {
           onGoButton={ onGoButton }
           locationList={ locationList }
           onMyLocationButton={ onMyLocationButton }
+          recentSearches={ recentSearchesList }
         />
       </div>
     );
