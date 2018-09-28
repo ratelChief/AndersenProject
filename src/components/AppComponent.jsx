@@ -3,7 +3,7 @@ import styles from './AppComponent.less';
 import { Header } from '../components/Header.jsx';
 import { Main } from '../components/Main.jsx';
 import SearchResults from '../components/SearchResults.jsx';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 import uuidv4 from 'uuid/v4';
 import * as constants from '../constants/location.constants';
@@ -28,9 +28,9 @@ export default class App extends Component {
     return null;
   }
 
-  getItem = value => <a href='/SearchResults' className={styles.locationItem} key={uuidv4()}>
+  getItem = value => <Link to='/SearchResults' className={styles.locationItem} key={uuidv4()}>
     {value}
-  </a>
+  </Link>
   render() {
     const {
       getStatus,
