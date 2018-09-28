@@ -1,16 +1,17 @@
-import { React } from 'react';
+import React, { Component } from 'react';
 
-export default class SearchResults extends React.Component {
+export default class SearchResults extends Component {
 
   render() {
     const { searchResults } = this.props;
+    console.log(this.props);
 
-    const searchList =
-    searchResults.map(
-      result => result.title);
+    // const searchList =
+    // searchResults.map(
+    //   result => result.title);
 
     return (
-      <div> {searchList} </div>
+      <div> searchList </div>
     );
   }
 }
