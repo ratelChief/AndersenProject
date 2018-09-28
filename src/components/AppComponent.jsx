@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styles from './AppComponent.less';
 import { Header } from '../components/Header.jsx';
 import { Main } from '../components/Main.jsx';
+
 import uuidv4 from 'uuid/v4';
 import * as constants from '../constants/location.constants';
 

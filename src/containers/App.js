@@ -7,7 +7,8 @@ const mapStateToProps = state => ({
   getStatus: state.locations.title,
   locationsArray: state.locations.locations,
   searchInputValue: state.locations.searchedValue,
-  recentSearches: state.locations.recentSearches
+  recentSearches: state.locations.recentSearches,
+  searchResults: state.locations.searchResults
 });
 
 const mapDispatchToProps = {
