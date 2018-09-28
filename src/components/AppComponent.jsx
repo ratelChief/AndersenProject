@@ -3,6 +3,7 @@ import styles from './AppComponent.less';
 import { Header } from '../components/Header.jsx';
 import { Main } from '../components/Main.jsx';
 import uuidv4 from 'uuid/v4';
+import * as constants from '../constants/location.constants';
 
 export default class App extends Component {
 
@@ -11,8 +12,8 @@ export default class App extends Component {
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.searchInputValue &&
       nextProps.searchInputValue !== prevState.searchInputValue) {
-      localStorage.setItem('recentSearches', JSON.stringify(
-        [...JSON.parse(localStorage.getItem('recentSearches')),
+      localStorage.setItem(constants.RECENT_SEARCHES, JSON.stringify(
+        [...JSON.parse(localStorage.getItem(constants.RECENT_SEARCHES)),
           {
             searchBy: nextProps.searchInputValue,
             length: nextProps.locationsArray.length

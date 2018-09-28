@@ -20,7 +20,7 @@ export class Form extends React.Component {
     });
   }
 
-  showRecentSearch = () => {
+  renderResults = () => {
     if (this.props.locationList.length) {
       return this.props.locationList;
     }
@@ -34,7 +34,7 @@ export class Form extends React.Component {
         <button type='button' className={`${styles.btn} ${styles.search}`} onClick={this.onGoButtonClick} >Go</button>
         <button type='button' className={`${styles.btn} ${styles.location}`} onClick={this.onMyLocationClick}>My location</button>
         <span className={styles.statusbar}>{this.props.data}</span>
-        <fieldset className={styles.results}>{this.showRecentSearch()}</fieldset>
+        <fieldset className={styles.results}>{this.renderResults()}</fieldset>
       </form>
     );
   }

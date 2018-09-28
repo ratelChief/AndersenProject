@@ -7,7 +7,7 @@ const initialState = {
   locations: [],
   title: 'Recent searches:',
   searchedValue: '',
-  recentSearches: JSON.parse(localStorage.getItem('recentSearches')) || []
+  recentSearches: JSON.parse(localStorage.getItem(constants.RECENT_SEARCHES)) || []
 };
 
 export const locationsReducer = (state = initialState, action) => {
