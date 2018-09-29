@@ -36,6 +36,12 @@ module.exports = {
     aggregateTimeout: 100
   },
 
+  devServer: {
+    hot: true,
+    historyApiFallback: true,
+    contentBase: './public'
+  },
+
   devtool: 'source-map', // соурс мэп работает только, если окружение - девелопмнт, если продакшн - то соурс мэп отсутствует
 
   plugins: [
@@ -58,5 +64,5 @@ module.exports = {
       test: /\.(css|less)$/,
       use: ['style-loader', cssLoader, postCssLoader, 'less-loader']
     }
-  ] }
+    ] }
 };
