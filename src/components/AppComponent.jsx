@@ -64,7 +64,7 @@ export default class App extends Component {
         <SearchResults
           searchList={ searchResults }
         />
-        <Route path='/SearchResults' component={SearchResults} />
+
       </div>
     );
   }
