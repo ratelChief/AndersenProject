@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Locations from './containers/Locations';
-import SearchResults from './containers/SearchResults';
+import RealtyList from './containers/RealtyList';
 
 import store from './store/configureStore';
 import * as constants from './constants/location.constants';
@@ -19,7 +19,7 @@ render(
       <div>
         <Switch>
           <Route exact path='/' component={Locations} />
-          <Route path='/SearchResults' component={SearchResults} />
+          <Route path='/RealtyList' component={RealtyList} />
         </Switch>
       </div>
     </BrowserRouter>
