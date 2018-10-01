@@ -8,21 +8,21 @@ export default class SearchResults extends Component {
   renderSearchList = () => {
     if (this.props.searchResults) {
       return this.props.searchResults.map(result =>
-        <div className={styles.container} key={uuidv4()}>
-          <div className={styles.item}>
-            <img src={result.img_url} className={styles.itemImg} />
-            <span className={styles.itemPrice}>{result.price_formatted}</span>
-            <span className={styles.itemTitle}>{result.title}</span>
-          </div>
+        <div className={styles.item} key={uuidv4()}>
+          <img src={result.img_url} className={styles.itemImg} />
+          <span className={styles.itemPrice}>{result.price_formatted}</span>
+          <span className={styles.itemTitle}>{result.title.toLowerCase()}</span>
         </div>
       );
     }
   }
 
   render() {
-    console.log(this.props);
     return (
-      <div>
+      <div className={styles.itemsContainer}>
+        <p className={styles.matchStatus}>
+          {this.props.searchResults.length} of {this.props.totalResults} matches
+        </p>
         {this.renderSearchList()}
       </div>
     );
