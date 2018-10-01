@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 
 import RealtyList from '../components/RealtyList.jsx';
+import * as realty from '../actions/realtyActions';
 
 const mapStateToProps = state => ({
   searchResults: state.realty.searchResults,
@@ -8,7 +9,9 @@ const mapStateToProps = state => ({
   recentSearches: state.locations.recentSearches
 });
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  getRealtyList: realty.fetchRealtyAction
+};
 
 export default connect(
   mapStateToProps,

@@ -10,6 +10,13 @@ const initialState = {
 
 export const realtyReducer = (state = initialState, action) => {
   switch (action.type) {
+
+  case constants.FETCH_LOCATIONS:
+    return {
+      ...state,
+      fetching: true
+    };
+
   case constants.FETCH_LOCATIONS_SUCCESS:
     return {
       ...state,

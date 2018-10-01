@@ -5,9 +5,17 @@ import RealtyItem from './RealtyItem.jsx';
 import styles from './RealtyList.less';
 
 export default class RealtyList extends Component {
+  componentDidmount() {
+    getRealtyList('leeds');
+  }
 
   render() {
     console.log(this.props);
+
+    const {
+      getRealtyList
+    } = this.props;
+
     return (
       <div className={styles.itemsContainer}>
         <p className={styles.matchStatus}>
