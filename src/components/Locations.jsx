@@ -18,7 +18,9 @@ export default class App extends Component {
         [...JSON.parse(localStorage.getItem(constants.RECENT_SEARCHES)),
           {
             searchBy: nextProps.searchInputValue,
-            length: nextProps.locationsArray.length
+            length: nextProps.locationsArray.length,
+            searchResults: nextProps.searchResults,
+            totalResults: nextProps.totalResults
           }
         ])
       );

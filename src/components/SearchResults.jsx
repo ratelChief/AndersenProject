@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import uuidv4 from 'uuid/v4';
 
 import styles from './SearchResults.less';
+import * as constants from '../constants/location.constants';
 
 export default class SearchResults extends Component {
 
