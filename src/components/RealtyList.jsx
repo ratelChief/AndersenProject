@@ -1,18 +1,10 @@
 import React, { Component } from 'react';
 import uuidv4 from 'uuid/v4';
-import RealtyItem from './RealtyList.jsx';
+import RealtyItem from './RealtyItem.jsx';
 
 import styles from './RealtyList.less';
 
 export default class RealtyList extends Component {
-
-  renderRealtyList = () => {
-    if (this.props.searchResults) {
-      return this.props.searchResults.map(result =>
-        <RealtyItem key={uuidv4()} {...result} />
-      );
-    }
-  }
 
   render() {
     console.log(this.props);
@@ -21,7 +13,9 @@ export default class RealtyList extends Component {
         <p className={styles.matchStatus}>
           {this.props.searchResults.length} of {this.props.totalResults} matches
         </p>
-        {this.renderRealtyList()}
+        {this.props.searchResults.map(result =>
+          <RealtyItem key={uuidv4()} {...result} />
+        )}
       </div>
     );
   }

@@ -7,8 +7,6 @@ const initialState = {
   locations: [],
   title: 'Recent searches:',
   searchedValue: '',
-  searchResults: [],
-  totalResults: 0,
   recentSearches: JSON.parse(localStorage.getItem(constants.RECENT_SEARCHES)) || []
 };
 
@@ -20,7 +18,6 @@ export const locationsReducer = (state = initialState, action) => {
       ...state,
       fetching: true
     };
-
 
   case constants.FETCH_LOCATIONS_SUCCESS:
     return {
