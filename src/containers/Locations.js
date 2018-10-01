@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import AppComponent from '../components/AppComponent.jsx';
+import Locations from '../components/Locations.jsx';
 import * as locations from '../actions/locationActions';
 
 const mapStateToProps = state => ({
@@ -19,4 +19,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(AppComponent);
+)(Locations);

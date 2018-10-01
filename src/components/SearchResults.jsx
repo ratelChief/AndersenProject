@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import uuidv4 from 'uuid/v4';
+
 import styles from './SearchResults.less';
 
 export default class SearchResults extends Component {
 
   renderSearchList = () => {
-    if (this.props.searchList) {
-      return this.props.searchList.map(result =>
+    if (this.props.searchResults) {
+      return this.props.searchResults.map(result =>
         <div className={styles.container} key={uuidv4()}>
           <div className={styles.item}>
             <img src={result.img_url} className={styles.itemImg} />
