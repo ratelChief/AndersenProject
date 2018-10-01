@@ -4,7 +4,8 @@ import SearchResults from '../components/SearchResults.jsx';
 
 const mapStateToProps = state => ({
   searchResults: state.locations.searchResults,
-  totalResults: state.locations.totalResults
+  totalResults: state.locations.totalResults,
+  recentSearches: state.locations.recentSearches
 });
 
 const mapDispatchToProps = {};
