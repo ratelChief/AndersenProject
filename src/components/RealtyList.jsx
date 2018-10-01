@@ -19,7 +19,7 @@ export default class RealtyList extends Component {
     return (
       <div className={styles.itemsContainer}>
         <p className={styles.matchStatus}>
-          {this.props.searchResults} of {this.props.totalResults} matches
+          {this.props.searchResults.length} of {this.props.totalResults} matches
         </p>
         {this.renderRealtyList()}
       </div>
