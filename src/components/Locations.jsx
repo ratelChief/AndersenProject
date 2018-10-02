@@ -12,24 +12,32 @@ export default class App extends Component {
   state = {};
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.searchInputValue &&
+    if (
+      nextProps.searchInputValue &&
       nextProps.searchInputValue !== prevState.searchInputValue) {
-      localStorage.setItem(RECENT_SEARCHES, JSON.stringify(
-        [...JSON.parse(localStorage.getItem(RECENT_SEARCHES)),
-          {
-            searchBy: nextProps.searchInputValue,
-            length: nextProps.locationsArray.length
-          }
-        ])
+      localStorage.setItem(
+        RECENT_SEARCHES,
+        JSON.stringify(
+          [...JSON.parse(localStorage.getItem(RECENT_SEARCHES)),
+            {
+              searchBy: nextProps.searchInputValue,
+              length: nextProps.locationsArray.length
+            }
+          ])
       );
       return { searchInputValue: nextProps.searchInputValue };
     }
     return null;
   }
 
-  getItem = (value1, value2 = '') => <Link to={`/realty/${value1}`} className={styles.locationItem} key={uuidv4()}>
-    {value1 + value2}
-  </Link>
+  getItem = (value1, value2 = '') =>
+    <Link to={`/realty/${value1}`}
+      className={styles.locationItem}
+      key={uuidv4()}
+    >
+      {value1 + value2}
+    </Link>
+
   render() {
     const {
       getStatus,

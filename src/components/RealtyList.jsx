@@ -7,13 +7,11 @@ import styles from './RealtyList.less';
 export default class RealtyList extends Component {
 
   componentDidMount() {
-
     this.props.getRealtyList(this.props.match.params.item);
-
   }
 
   render() {
-    console.log(this.props);
+
     return (
       <div className={styles.itemsContainer}>
         <p className={styles.matchStatus}>
@@ -24,5 +22,6 @@ export default class RealtyList extends Component {
         )}
       </div>
     );
+
   }
 }

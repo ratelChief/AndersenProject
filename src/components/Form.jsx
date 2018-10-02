@@ -22,12 +22,13 @@ export class Form extends React.Component {
 
   renderResults = () => {
     if (this.props.locationList.length) {
-      return this.props.locationList;
+      return [...new Set(this.props.locationList)];
     }
-    return this.props.recentSearches;
+    return [...new Set(this.props.recentSearches)];
   }
 
   render() {
+
     return (
       <form className={styles.pageForm}>
         <input type='text' className={styles.searchInput} onChange={this.onInputChange} />
@@ -37,5 +38,6 @@ export class Form extends React.Component {
         <fieldset className={styles.results}>{this.renderResults()}</fieldset>
       </form>
     );
+
   }
 }
