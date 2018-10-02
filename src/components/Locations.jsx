@@ -27,8 +27,8 @@ export default class App extends Component {
     return null;
   }
 
-  getItem = value => <Link to={`/realty/${value}`} className={styles.locationItem} key={uuidv4()}>
-    {value}
+  getItem = (value1, value2 = '') => <Link to={`/realty/${value1}`} className={styles.locationItem} key={uuidv4()}>
+    {value1 + value2}
   </Link>
   render() {
     const {
@@ -46,7 +46,7 @@ export default class App extends Component {
 
     const recentSearchesList =
     recentSearches.map(
-      search => this.getItem(`${search.searchBy} (${search.length})`)
+      search => this.getItem(`${search.searchBy}`, `(${search.length})`)
     );
 
     return (
