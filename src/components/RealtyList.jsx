@@ -8,13 +8,12 @@ export default class RealtyList extends Component {
 
   componentDidMount() {
 
-    this.props.getRealtyList('leeds');
+    this.props.getRealtyList(this.props.match.params.item);
 
   }
 
   render() {
     console.log(this.props);
-
     return (
       <div className={styles.itemsContainer}>
         <p className={styles.matchStatus}>
