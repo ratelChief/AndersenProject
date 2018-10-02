@@ -5,11 +5,16 @@ import { RealtyItem } from './RealtyItem.jsx';
 import styles from './RealtyList.less';
 
 export default class RealtyList extends Component {
-  componentDidmount() {
+
+
+  componentDidMount() {
+    console.log(this.props.getRealtyList('leeds'));
+    this.props.getRealtyList('leeds');
 
   }
 
   render() {
+    console.log(this.props);
 
     return (
       <div className={styles.itemsContainer}>
