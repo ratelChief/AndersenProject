@@ -13,7 +13,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   onGoButton: locations.fetchLocationAction,
-  onMyLocationButton: locations.fetchMyLocationAction
+  onMyLocationButton: locations.fetchMyLocationAction,
+  setInitState: locations.setToIitialState
 };
 
 export default connect(

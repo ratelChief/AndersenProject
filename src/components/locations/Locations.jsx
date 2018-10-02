@@ -32,6 +32,10 @@ export default class App extends Component {
     return null;
   }
 
+  componentWillUnmount() {
+    this.props.setInitState();
+  }
+
   getItem = (value1, value2 = '') =>
     <Link to={`/realty/${value1}`}
       className={styles.locationItem}

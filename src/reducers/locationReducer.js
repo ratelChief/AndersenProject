@@ -1,4 +1,4 @@
-import { FETCH_LOCATIONS, FETCH_LOCATIONS_SUCCESS, FETCH_LOCATIONS_ERROR, RECENT_SEARCHES, FETCH_MY_LOCATION_SUCCESS } from '../constants/location.constants';
+import { FETCH_LOCATIONS, FETCH_LOCATIONS_SUCCESS, FETCH_LOCATIONS_ERROR, RECENT_SEARCHES, FETCH_MY_LOCATION_SUCCESS, SET_TO_INITIAL_STATE } from '../constants/location.constants';
 
 const initialState = {
   fetching: false,
@@ -45,6 +45,18 @@ export const locationsReducer = (state = initialState, action) => {
       fetched: true,
       locations: action.payload.response.locations,
       title: 'Please select a location below:'
+    };
+
+  case SET_TO_INITIAL_STATE:
+    return {
+      ...state,
+      fetching: false,
+      fetched: false,
+      error: null,
+      locations: [],
+      title: 'Recent searches:',
+      searchedValue: '',
+      recentSearches: JSON.parse(localStorage.getItem(RECENT_SEARCHES)) || []
     };
 
   default: return state;
