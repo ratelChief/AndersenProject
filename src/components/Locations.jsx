@@ -27,7 +27,7 @@ export default class App extends Component {
     return null;
   }
 
-  getItem = value => <Link to='/london' className={styles.locationItem} key={uuidv4()}>
+  getItem = value => <Link to='/realtyList/london' className={styles.locationItem} key={uuidv4()}>
     {value}
   </Link>
   render() {
