@@ -19,7 +19,7 @@ render(
       <div>
         <Switch>
           <Route exact path='/' component={Locations} />
-          <Route path='/realtyList/:item' component={RealtyList} />
+          <Route path='/realty/:item' component={RealtyList} />
         </Switch>
       </div>
     </BrowserRouter>
