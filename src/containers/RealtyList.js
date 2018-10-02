@@ -2,12 +2,10 @@ import { connect } from 'react-redux';
 
 import RealtyList from '../components/RealtyList.jsx';
 import * as realty from '../actions/realtyActions';
-import * as locations from '../actions/locationActions';
 
 const mapStateToProps = state => ({
   searchResults: state.realty.searchResults,
-  totalResults: state.realty.totalResults,
-  recentSearches: state.locations.recentSearches
+  totalResults: state.realty.totalResults
 });
 
 const mapDispatchToProps = {
