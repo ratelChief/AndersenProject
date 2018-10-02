@@ -5,5 +5,3 @@ export const FETCH_MY_LOCATION = 'FETCH_MY_LOCATION';
 export const FETCH_MY_LOCATION_SUCCESS = 'FETCH_MY_LOCATION_SUCCESS';
 
 export const RECENT_SEARCHES = 'recentSearches';
-
-export const FETCH_REALTY_LIST = 'FETCH_REALTY_LIST';

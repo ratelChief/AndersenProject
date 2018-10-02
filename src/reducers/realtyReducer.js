@@ -1,4 +1,4 @@
-import * as constants from '../constants/location.constants';
+import { FETCH_REALTY_LIST, FETCH_REALTY_LIST_SUCCESS } from '../constants/realty.constants';
 
 const initialState = {
   fetching: false,
@@ -11,13 +11,13 @@ const initialState = {
 export const realtyReducer = (state = initialState, action) => {
   switch (action.type) {
 
-  case constants.FETCH_REALTY_LIST:
+  case FETCH_REALTY_LIST:
     return {
       ...state,
       fetching: true
     };
 
-  case constants.FETCH_REALTY_LIST_SUCCESS:
+  case FETCH_REALTY_LIST_SUCCESS:
     return {
       ...state,
       fetching: false,

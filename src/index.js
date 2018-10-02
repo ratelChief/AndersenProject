@@ -7,9 +7,9 @@ import Locations from './containers/Locations';
 import RealtyList from './containers/RealtyList';
 
 import store from './store/configureStore';
-import * as constants from './constants/location.constants';
+import { RECENT_SEARCHES } from './constants/location.constants';
 
-if (!localStorage.getItem(constants.RECENT_SEARCHES)) {
+if (!localStorage.getItem(RECENT_SEARCHES)) {
   localStorage.recentSearches = JSON.stringify([]);
 }
 
