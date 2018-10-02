@@ -10,7 +10,6 @@ export default class RealtyList extends Component {
   }
 
   render() {
-    console.log(this.props);
 
     return (
       <div className={styles.itemsContainer}>

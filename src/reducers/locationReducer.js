@@ -27,8 +27,7 @@ export const locationsReducer = (state = initialState, action) => {
       locations: action.payload.response.locations,
       searchResults: action.payload.response.listings,
       title: 'Please select a location below:',
-      searchedValue: action.payload.request.location,
-      totalResults: action.payload.response.total_results
+      searchedValue: action.payload.request.location
     };
 
   case constants.FETCH_LOCATIONS_ERROR:
