@@ -7,7 +7,7 @@ import styles from './RealtyList.less';
 export default class RealtyList extends Component {
 
   componentDidMount() {
-    console.log(this.props.getRealtyList);
+
     this.props.getRealtyList('leeds');
 
   }

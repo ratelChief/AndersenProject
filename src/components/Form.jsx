@@ -28,6 +28,7 @@ export class Form extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <form className={styles.pageForm}>
         <input type='text' className={styles.searchInput} onChange={this.onInputChange} />
