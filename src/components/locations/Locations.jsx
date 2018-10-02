@@ -1,33 +1,49 @@
 import React, { Component } from 'react';
-import styles from './AppComponent.less';
-import { Header } from '../components/Header.jsx';
-import { Main } from '../components/Main.jsx';
+import { Link } from 'react-router-dom';
 import uuidv4 from 'uuid/v4';
-import * as constants from '../constants/location.constants';
+
+import { RECENT_SEARCHES } from '../../constants/location.constants';
+
+import styles from './Locations.less';
+
+import { Header } from '../header/Header.jsx';
+import { Main } from '../main/Main.jsx';
 
 export default class App extends Component {
 
   state = {};
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.searchInputValue &&
+    if (
+      nextProps.searchInputValue &&
       nextProps.searchInputValue !== prevState.searchInputValue) {
-      localStorage.setItem(constants.RECENT_SEARCHES, JSON.stringify(
-        [...JSON.parse(localStorage.getItem(constants.RECENT_SEARCHES)),
-          {
-            searchBy: nextProps.searchInputValue,
-            length: nextProps.locationsArray.length
-          }
-        ])
+      localStorage.setItem(
+        RECENT_SEARCHES,
+        JSON.stringify(
+          [...JSON.parse(localStorage.getItem(RECENT_SEARCHES)),
+            {
+              searchBy: nextProps.searchInputValue,
+              length: nextProps.locationsArray.length
+            }
+          ])
       );
       return { searchInputValue: nextProps.searchInputValue };
     }
     return null;
   }
 
-  getItem = value => <a href='#' className={styles.locationItem} key={uuidv4()}>
-    {value}
-  </a>
+  componentWillUnmount() {
+    this.props.setInitState();
+  }
+
+  getItem = (value1, value2 = '') =>
+    <Link to={`/realty/${value1}`}
+      className={styles.locationItem}
+      key={uuidv4()}
+    >
+      {value1 + value2}
+    </Link>
+
   render() {
     const {
       getStatus,
@@ -44,7 +60,7 @@ export default class App extends Component {
 
     const recentSearchesList =
     recentSearches.map(
-      search => this.getItem(`${search.searchBy} (${search.length})`)
+      search => this.getItem(`${search.searchBy}`, `(${search.length})`)
     );
 
     return (
