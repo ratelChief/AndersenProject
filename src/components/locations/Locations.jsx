@@ -44,7 +44,9 @@ export default class App extends Component {
       {value1 + value2}
     </Link>
 
+
   render() {
+    console.log(this.props);
     const {
       getStatus,
       onGoButton,
