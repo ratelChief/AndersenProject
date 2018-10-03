@@ -1,0 +1,1 @@
+export const GET_PROPERTY_DATA = 'GET_PROPERTY_DATA';
