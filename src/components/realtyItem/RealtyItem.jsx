@@ -5,6 +5,7 @@ import styles from '../realtyList/RealtyList.less';
 
 export const RealtyItem = props => {
   const pushData = () => {
+    props.getData(props);
     console.log(props);
 
   };

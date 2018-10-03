@@ -14,7 +14,12 @@ export const propertyReducer = (state = initialState, action) => {
   case GET_PROPERTY_DATA:
     return {
       ...state,
-      title: action.payload
+      title: action.payload.title,
+      price: action.payload.price_formatted,
+      image: action.payload.img_url,
+      summary: action.payload.summary,
+      bedrooms: action.payload.bedroom_number,
+      bathrooms: action.payload.bathroom_number
     };
 
   default: return state;

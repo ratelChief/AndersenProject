@@ -19,7 +19,7 @@ export default class RealtyList extends Component {
           {this.props.searchResults.length} of {this.props.totalResults} matches
         </p>
         {this.props.searchResults.map(result =>
-          <RealtyItem key={uuidv4()} {...result} />
+          <RealtyItem key={uuidv4()} {...result} getData={this.props.getData} />
         )}
       </div>
     );

@@ -13,7 +13,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  getData: property.getPropertyData
+
 };
 
 export default connect(
