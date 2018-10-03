@@ -1,5 +1,5 @@
 
 const initialState = {
-  name
+  title: 'property details'
 };
 export const propertyReducer = (state = initialState, action) => state;

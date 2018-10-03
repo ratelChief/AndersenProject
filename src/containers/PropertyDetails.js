@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 
-import { PropertyDetails } from '../components/propertyDetails/PropertyDetails.jsx';
+import PropertyDetails from '../components/propertyDetails/PropertyDetails.jsx';
 
 const mapStateToProps = state => ({
-  searchResults: state.realty.searchResults
+  title: state.title
 });
 
 export default connect(
