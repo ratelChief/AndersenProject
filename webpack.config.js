@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 const autoprefixer = require('autoprefixer');
 const postCssLoader = {
@@ -24,9 +25,10 @@ const cssLoader = {
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
-  entry: `${__dirname }/src/index.js`, //что собирать
+  entry: `./src/index.js`, //что собирать
   output: {
-    path: `${__dirname }/public`, // куда выводить
+    path: path.join(__dirname, '/public'), // куда выводить
+    publicPath: '/',
     filename: 'bundle.js' // имя файла
   },
 
