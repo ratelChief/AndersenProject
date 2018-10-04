@@ -17,7 +17,7 @@ if (!localStorage.getItem(RECENT_SEARCHES)) {
 }
 
 if (!localStorage.getItem(FAVORITES)) {
-  localStorage.favoritesLocalStorage = JSON.stringify([]);
+  localStorage[FAVORITES] = JSON.stringify([]);
 }
 
 render(

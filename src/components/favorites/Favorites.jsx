@@ -8,7 +8,7 @@ export class Favorites extends React.Component {
     return (
       <div className='pageContainer'>
         <h3 className='pageTitle'>Favorites</h3>
-        {/* <RealtyList /> */}
+        {/* <RealtyList props={} /> */}
       </div>
     );
   }

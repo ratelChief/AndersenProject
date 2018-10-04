@@ -9,11 +9,12 @@ export default class PropertyDetails extends Component {
   addToFaves = () => {
     this.props.onAddToFavesButton(this.props);
 
+
     localStorage.setItem(
       FAVORITES,
       JSON.stringify(
         [...JSON.parse(localStorage.getItem(FAVORITES)),
-          { data: this.props.price }
+          this.props
         ]
       )
     );
