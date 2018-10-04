@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
   title: state.property.title,
   price: state.property.price,
   image: state.property.image,
-  desc: state.property.desc,
+  summary: state.property.summary,
   bathrooms: state.property.bathrooms,
   bedrooms: state.property.bedrooms
 });
