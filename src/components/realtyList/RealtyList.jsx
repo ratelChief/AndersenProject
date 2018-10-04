@@ -6,7 +6,6 @@ import { RealtyItem } from '../realtyItem/RealtyItem.jsx';
 import styles from './RealtyList.less';
 
 export default class RealtyList extends Component {
-
   componentDidMount() {
     this.props.getRealtyList(this.props.match.params.item);
   }
