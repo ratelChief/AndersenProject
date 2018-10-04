@@ -44,6 +44,7 @@ export default class App extends Component {
       {value1 + value2}
     </Link>
 
+
   render() {
     const {
       getStatus,
