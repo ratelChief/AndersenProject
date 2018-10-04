@@ -1,7 +1,8 @@
-import { SET_TO_FAVORITES } from '../constants/favorites.constants.js';
+import { SET_TO_FAVORITES, FAVORITES } from '../constants/favorites.constants.js';
 
 const initialState = {
-  favorites: []
+  favorites: [],
+  favoritesLocalStorage: JSON.parse(localStorage.getItem(FAVORITES)) || []
 };
 
 export const favoritesReducer = (state = initialState, action) => {

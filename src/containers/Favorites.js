@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import Favorites from '../components/favorites/Favorites.jsx';
+import { Favorites } from '../components/favorites/Favorites.jsx';
 
 const mapStateToProps = state => ({
   dataFromLocalStore: 'string',

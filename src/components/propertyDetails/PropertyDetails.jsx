@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
 import styles from './PropertyDetails.less';
 
+import { FAVORITES } from '../../constants/favorites.constants.js';
+
 export default class PropertyDetails extends Component {
   showBathrooms = () => this.props.bathrooms || 0;
 
   addToFaves = () => {
     this.props.onAddToFavesButton(this.props);
-    console.log(this.props);
+
+    localStorage.setItem(
+      FAVORITES,
+      JSON.stringify(
+        [...JSON.parse(localStorage.getItem(FAVORITES)),
+          { data: this.props.price }
+        ]
+      )
+    );
   }
 
   render() {
