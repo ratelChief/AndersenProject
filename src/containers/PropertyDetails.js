@@ -12,11 +12,6 @@ const mapStateToProps = state => ({
   bedrooms: state.property.bedrooms
 });
 
-const mapDispatchToProps = {
-
-};
-
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(PropertyDetails);

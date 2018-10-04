@@ -2,12 +2,7 @@ import React, { Component } from 'react';
 import styles from './PropertyDetails.less';
 
 export default class PropertyDetails extends Component {
-  showBathrooms = () => {
-    if (this.props.bathrooms) {
-      return this.props.bathrooms;
-    }
-    return 0;
-  };
+  showBathrooms = () => this.props.bathrooms || 0;
 
   render() {
     return (
