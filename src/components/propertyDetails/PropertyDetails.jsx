@@ -4,12 +4,17 @@ import styles from './PropertyDetails.less';
 export default class PropertyDetails extends Component {
   showBathrooms = () => this.props.bathrooms || 0;
 
+  addToFaves = () => {
+    this.props.onAddToFavesButton(this.props);
+    console.log(this.props);
+  }
+
   render() {
     return (
       <div className={styles.pageContainer}>
         <header className={styles.pageHeader}>
           <h3 className={styles.pageTitle}>Property Details</h3>
-          <button className={styles.btnFaves}>+</button>
+          <button className={styles.btnFaves} onClick={this.addToFaves}>+</button>
         </header>
         <div className={styles.pagePrimary}>
           <span className={styles.itemPrice}>{this.props.price}</span>
