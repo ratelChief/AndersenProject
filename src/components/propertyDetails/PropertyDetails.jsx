@@ -8,22 +8,33 @@ export default class PropertyDetails extends Component {
 
   addToFaves = () => {
 
-    JSON.parse(localStorage.getItem(FAVORITES)).map(item => {
-      if (item.title !== this.props.title) {
+    if (JSON.parse(localStorage.getItem(FAVORITES)).length === 0) {
+      this.props.onAddToFavesButton(this.props);
 
-        this.props.onAddToFavesButton(this.props);
+      localStorage.setItem(
+        FAVORITES,
+        JSON.stringify(
+          [...JSON.parse(localStorage.getItem(FAVORITES)),
+            this.props
+          ]
+        )
+      );
 
-        localStorage.setItem(
-          FAVORITES,
-          JSON.stringify(
-            [...JSON.parse(localStorage.getItem(FAVORITES)),
-              this.props
-            ]
-          )
-        );
-      }
-    });
-  }
+    }
+    if (JSON.parse(localStorage.getItem(FAVORITES)).every(item => item.title !== this.props.title)) {
+
+      this.props.onAddToFavesButton(this.props);
+
+      localStorage.setItem(
+        FAVORITES,
+        JSON.stringify(
+          [...JSON.parse(localStorage.getItem(FAVORITES)),
+            this.props
+          ]
+        )
+      );
+    }
+  };
 
   render() {
     return (

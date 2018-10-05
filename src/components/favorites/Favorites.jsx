@@ -5,6 +5,10 @@ import styles from './Favorites.less';
 
 export class Favorites extends React.Component {
 
+  componentWillUnmount() {
+    this.props.setInitState();
+  }
+
   render() {
     return (
       <div className={styles.pageContainer}>
