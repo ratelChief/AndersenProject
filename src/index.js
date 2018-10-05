@@ -28,7 +28,7 @@ render(
           <Route exact path='/' component={Locations} />
           <Route exact path='/realty/:item' component={RealtyList} />
           <Route path='/realty/:item/:name' component={PropertyDetails} />
-          <Route path='/favorites' component={Favorites} />
+          <Route path='/:item' component={Favorites} />
         </Switch>
       </div>
     </BrowserRouter>
