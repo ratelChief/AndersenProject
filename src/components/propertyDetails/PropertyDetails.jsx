@@ -7,17 +7,22 @@ export default class PropertyDetails extends Component {
   showBathrooms = () => this.props.bathrooms || 0;
 
   addToFaves = () => {
-    this.props.onAddToFavesButton(this.props);
 
+    JSON.parse(localStorage.getItem(FAVORITES)).map(item => {
+      if (item.title !== this.props.title) {
 
-    localStorage.setItem(
-      FAVORITES,
-      JSON.stringify(
-        [...JSON.parse(localStorage.getItem(FAVORITES)),
-          this.props
-        ]
-      )
-    );
+        this.props.onAddToFavesButton(this.props);
+
+        localStorage.setItem(
+          FAVORITES,
+          JSON.stringify(
+            [...JSON.parse(localStorage.getItem(FAVORITES)),
+              this.props
+            ]
+          )
+        );
+      }
+    });
   }
 
   render() {
