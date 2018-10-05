@@ -5,7 +5,6 @@ import { withRouter } from 'react-router-dom';
 import styles from '../realtyList/RealtyList.less';
 
 export const RealtyItemComponent = props => {
-  console.log(props, 'item');
   const pushData = () => {
     props.getData(props);
   };
