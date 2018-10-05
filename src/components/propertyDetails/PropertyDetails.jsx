@@ -4,6 +4,7 @@ import styles from './PropertyDetails.less';
 import { FAVORITES } from '../../constants/favorites.constants.js';
 
 export default class PropertyDetails extends Component {
+
   showBathrooms = () => this.props.bathrooms || 0;
   showBedrooms = () => this.props.bedrooms || 0;
 
@@ -37,12 +38,18 @@ export default class PropertyDetails extends Component {
     }
   };
 
+  showAddToFaves = () => {
+    if (JSON.parse(localStorage.getItem(FAVORITES)).every(item => item.title !== this.props.title)) {
+      return <button className={styles.btnFaves} onClick={this.addToFaves}>+</button>;
+    }
+  }
+
   render() {
     return (
       <div className={styles.pageContainer}>
         <header className={styles.pageHeader}>
           <h3 className={styles.pageTitle}>Property Details</h3>
-          <button className={styles.btnFaves} onClick={this.addToFaves}>+</button>
+          {this.showAddToFaves()}
         </header>
         <div className={styles.pagePrimary}>
           <span className={styles.itemPrice}>{this.props.price}</span>
