@@ -7,7 +7,11 @@ import styles from './RealtyList.less';
 
 export default class RealtyList extends Component {
   componentDidMount() {
-    this.props.getRealtyList(this.props.match.params.item);
+    console.log(this.props);
+    if (this.props.getRealtyList) {
+      this.props.getRealtyList(this.props.match.params.item);
+    }
+
   }
 
   render() {

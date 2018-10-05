@@ -1,5 +1,5 @@
 import React from 'react';
-import { RealtyList } from '../realtyList/RealtyList.jsx';
+import RealtyList from '../realtyList/RealtyList.jsx';
 
 export class Favorites extends React.Component {
 
@@ -8,7 +8,9 @@ export class Favorites extends React.Component {
     return (
       <div className='pageContainer'>
         <h3 className='pageTitle'>Favorites</h3>
-        {/* <RealtyList props={} /> */}
+        <RealtyList
+          searchResults={this.props.searchResults} totalResults={this.props.totalResults}
+        />
       </div>
     );
   }

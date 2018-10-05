@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 
 import RealtyList from '../components/realtyList/RealtyList.jsx';
+import { Favorites } from '../components/favorites/Favorites.jsx';
 
 const mapStateToProps = state => ({
   searchResults: state.favorites.favorites,
@@ -15,4 +16,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(RealtyList);
+)(Favorites);
