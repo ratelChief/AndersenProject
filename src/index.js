@@ -23,14 +23,13 @@ if (!localStorage.getItem(FAVORITES)) {
 render(
   <Provider store={store}>
     <BrowserRouter>
-      <div>
-        <Switch>
-          <Route exact path='/' component={Locations} />
-          <Route exact path='/realty/:item' component={RealtyList} />
-          <Route path='/realty/:item/:name' component={PropertyDetails} />
-          <Route path='/:item' component={Favorites} />
-        </Switch>
-      </div>
+      <Switch>
+        <Route exact path='/' component={Locations} />
+        <Route exact path='/realty/:item' component={RealtyList} />
+        <Route path='/realty/:item/:name' component={PropertyDetails} />
+        <Route exact path='/:fav' component={Favorites} />
+        <Route path='/:fav/:name' component={PropertyDetails} />
+      </Switch>
     </BrowserRouter>
   </Provider>,
   document.getElementById('app')

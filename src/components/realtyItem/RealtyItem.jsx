@@ -14,7 +14,6 @@ export const RealtyItemComponent = props => {
 
 
   return (
-
     <Link to={`${props.match.url}/${props.title}`}
       className={styles.item}
       onClick={pushData}
