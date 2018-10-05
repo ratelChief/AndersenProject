@@ -6,6 +6,6 @@ export const Header = () =>
   <header className={styles.pageHeader}>
     <h1 className={styles.pageLogo}>PropertyCross</h1>
     <Link to='/favorites' className={styles.btnFaves}>
-      <button className={styles.btnFaves}>Faves</button>
+      Faves
     </Link>
   </header>;
