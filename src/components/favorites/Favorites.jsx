@@ -10,7 +10,6 @@ export class Favorites extends React.Component {
   }
 
   render() {
-    console.log('favorites', this.props);
     return (
       <div className={styles.pageContainer}>
         <h3 className={styles.pageTitle}>Favorites</h3>

@@ -38,7 +38,6 @@ export default class PropertyDetails extends Component {
   };
 
   render() {
-    console.log('details', this.props);
     return (
       <div className={styles.pageContainer}>
         <header className={styles.pageHeader}>
