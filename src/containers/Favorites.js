@@ -1,20 +1,28 @@
 import { connect } from 'react-redux';
 
 import { Favorites } from '../components/favorites/Favorites.jsx';
-import * as faves from '../actions/favoritesAction.js';
-import * as property from '../actions/propertyActions.js';
+import { getPropertyData } from '../actions/propertyActions.js';
+import { setToIitialState } from '../actions/favoritesAction';
 
+import { FAVORITES } from '../constants/favorites.constants.js';
 
-const mapStateToProps = state => ({
-  searchResults: state.favorites.favorites,
-  totalResults: state.favorites.favorites.length
+const mapStateToProps = ({ favorites }) => ({ // и тут
+  searchResults: favorites.data,
+  totalResults: favorites.data.length,
+  listOfFavorites: JSON.parse(localStorage.getItem(FAVORITES))
 });
+
+//где ты вообще такое нашел??
 
 const mapDispatchToProps = {
   getRealtyList: () => {},
-  getData: property.getPropertyData,
-  setInitState: faves.setToIitialState
+  getData: getPropertyData,
+  setInitState: setToIitialState
 };
+
+// const mapDispatchToProps = dispatch => ({
+//   getData: () => dispatch(getPropertyData())
+// });
 
 export default connect(
   mapStateToProps,

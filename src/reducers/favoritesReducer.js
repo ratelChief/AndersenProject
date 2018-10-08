@@ -1,26 +1,34 @@
-import { SET_TO_FAVORITES, FAVORITES, SET_TO_INITIAL_STATE } from '../constants/favorites.constants.js';
+import * as types from '../constants/favorites.constants.js';
 
 const initialState = {
-  favorites: JSON.parse(localStorage.getItem(FAVORITES))
+  data: JSON.parse(localStorage.getItem(types.FAVORITES))
 };
 
 export const favoritesReducer = (state = initialState, action) => {
   switch (action.type) {
-  case SET_TO_FAVORITES:
+  case types.SET_TO_FAVORITES: {
+
+    const stringifyData = JSON.stringify([
+      ...state.data,
+      action.payload
+    ]);
+
+    localStorage.setItem(types.FAVORITES, stringifyData);
+
     return {
       ...state,
-      favorites: [
-        ...state.favorites,
+      data: [
+        ...state.data,
         action.payload
       ]
     };
+  }
 
-  case SET_TO_INITIAL_STATE:
+  case types.SET_TO_INITIAL_STATE:
     return {
-      favorites: JSON.parse(localStorage.getItem(FAVORITES))
+      data: JSON.parse(localStorage.getItem(types.FAVORITES))
     };
 
   default: return state;
-
   }
 };
