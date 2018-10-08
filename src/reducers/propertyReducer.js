@@ -15,11 +15,11 @@ export const propertyReducer = (state = initialState, action) => {
     return {
       ...state,
       title: action.payload.title,
-      price: action.payload.price_formatted || action.payload.price,
-      image: action.payload.img_url || action.payload.image,
+      price: action.payload.price_formatted,
+      image: action.payload.img_url,
       summary: action.payload.summary,
-      bedrooms: action.payload.bedroom_number || action.payload.bedrooms,
-      bathrooms: action.payload.bathroom_number || action.payload.bathrooms
+      bedrooms: action.payload.bedroom_number,
+      bathrooms: action.payload.bathroom_number
     };
 
   default: return state;

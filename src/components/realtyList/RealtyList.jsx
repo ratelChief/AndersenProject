@@ -7,9 +7,7 @@ import styles from './RealtyList.less';
 
 export default class RealtyList extends Component {
   componentDidMount() {
-    if (this.props.getRealtyList) {
-      this.props.getRealtyList(this.props.match.params.item);
-    }
+    this.props.getRealtyList(this.props.match.params.item);
   }
 
   render() {
@@ -20,11 +18,7 @@ export default class RealtyList extends Component {
           {this.props.searchResults.length} of {this.props.totalResults} matches
         </p>
         {this.props.searchResults.map(result =>
-          <RealtyItem
-            key={uuidv4()}
-            {...result}
-            getData={this.props.getData}
-          />
+          <RealtyItem key={uuidv4()} {...result} getData={this.props.getData} />
         )}
       </div>
     );

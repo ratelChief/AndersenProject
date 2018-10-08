@@ -4,7 +4,7 @@ import RealtyList from '../components/realtyList/RealtyList.jsx';
 import * as realty from '../actions/realtyActions';
 import * as property from '../actions/propertyActions';
 
-const mapStateToProps = state => ({ // ...
+const mapStateToProps = state => ({
   searchResults: state.realty.searchResults,
   totalResults: state.realty.totalResults
 });
