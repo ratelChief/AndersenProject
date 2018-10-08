@@ -1,2 +1,1 @@
 export const GET_PROPERTY_DATA = 'GET_PROPERTY_DATA';
-export const ADDED_TO_FAVES = 'ADDED_TO_FAVES';

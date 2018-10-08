@@ -27,6 +27,7 @@ export default class PropertyDetails extends Component {
 
       this.props.onAddToFavesButton(this.props);
       this.props.addedToFaves(true);
+      console.log('details', this.props);
 
       localStorage.setItem(
         FAVORITES,
@@ -40,13 +41,9 @@ export default class PropertyDetails extends Component {
   };
 
   showAddToFaves = () => {
-    if (JSON.parse(localStorage.getItem(FAVORITES)).every(item => item.title !== this.props.title) || !this.props.isAddedToFaves) {
+    if (JSON.parse(localStorage.getItem(FAVORITES)).every(item => item.title !== this.props.title)) {
       return <button className={styles.btnFaves} onClick={this.addToFaves}>+</button>;
     }
-  }
-
-  componentWillUnmount() {
-    this.props.addedToFaves(false);
   }
 
   render() {
