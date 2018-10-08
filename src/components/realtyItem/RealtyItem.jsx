@@ -11,7 +11,6 @@ export const RealtyItemComponent = props => {
 
   const showData = () => props.price_formatted || props.price;
   const showImg = () => props.img_url || props.image;
-  console.log(props);
 
   return (
     <Link to={`${props.match.url}/${props.title}`}

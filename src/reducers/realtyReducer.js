@@ -1,12 +1,11 @@
-import { FETCH_REALTY_LIST, FETCH_REALTY_LIST_SUCCESS, ADDED_TO_FAVES } from '../constants/realty.constants';
+import { FETCH_REALTY_LIST, FETCH_REALTY_LIST_SUCCESS } from '../constants/realty.constants';
 
 const initialState = {
   fetching: false,
   fetched: false,
   error: null,
   searchResults: [],
-  totalResults: 0,
-  isAddedToFaves: false
+  totalResults: 0
 };
 
 export const realtyReducer = (state = initialState, action) => {
@@ -26,13 +25,6 @@ export const realtyReducer = (state = initialState, action) => {
       searchResults: action.payload.response.listings,
       totalResults: action.payload.response.total_results
     };
-
-  case ADDED_TO_FAVES: {
-    return {
-      ...state,
-      isAddedToFaves: action.payload
-    };
-  }
   default: return state;
   }
 };

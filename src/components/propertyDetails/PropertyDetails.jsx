@@ -26,8 +26,6 @@ export default class PropertyDetails extends Component {
     if (JSON.parse(localStorage.getItem(FAVORITES)).every(item => item.title !== this.props.title)) {
 
       this.props.onAddToFavesButton(this.props);
-      this.props.addedToFaves(true);
-      console.log('details', this.props);
 
       localStorage.setItem(
         FAVORITES,

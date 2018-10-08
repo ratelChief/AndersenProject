@@ -24,7 +24,6 @@ export default class RealtyList extends Component {
             key={uuidv4()}
             {...result}
             getData={this.props.getData}
-            isAddedToFaves={this.props.isAddedToFaves}
           />
         )}
       </div>

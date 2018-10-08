@@ -6,8 +6,7 @@ import * as property from '../actions/propertyActions';
 
 const mapStateToProps = state => ({
   searchResults: state.realty.searchResults,
-  totalResults: state.realty.totalResults,
-  isAddedToFaves: state.realty.isAddedToFaves
+  totalResults: state.realty.totalResults
 });
 
 const mapDispatchToProps = {

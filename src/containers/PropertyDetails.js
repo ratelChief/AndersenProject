@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 
 import PropertyDetails from '../components/propertyDetails/PropertyDetails.jsx';
 import * as faves from '../actions/favoritesAction';
-import * as realty from '../actions/realtyActions';
 
 const mapStateToProps = state => ({
   title: state.property.title,
@@ -14,8 +13,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  onAddToFavesButton: faves.setToFavorites,
-  addedToFaves: realty.addingToFaves
+  onAddToFavesButton: faves.setToFavorites
 };
 
 export default connect(
