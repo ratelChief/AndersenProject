@@ -26,6 +26,8 @@ export default class PropertyDetails extends Component {
     if (JSON.parse(localStorage.getItem(FAVORITES)).every(item => item.title !== this.props.title)) {
 
       this.props.onAddToFavesButton(this.props);
+      this.props.addedToFaves(true);
+      console.log(this.props);
 
       localStorage.setItem(
         FAVORITES,
@@ -39,12 +41,17 @@ export default class PropertyDetails extends Component {
   };
 
   showAddToFaves = () => {
-    if (JSON.parse(localStorage.getItem(FAVORITES)).every(item => item.title !== this.props.title)) {
+    if (JSON.parse(localStorage.getItem(FAVORITES)).every(item => item.title !== this.props.title) || !this.props.isAddedToFaves) {
       return <button className={styles.btnFaves} onClick={this.addToFaves}>+</button>;
     }
   }
 
+  componentWillUnmount() {
+    this.props.addedToFaves(false);
+  }
+
   render() {
+    console.log(this.props);
     return (
       <div className={styles.pageContainer}>
         <header className={styles.pageHeader}>

@@ -1,4 +1,4 @@
-import { GET_PROPERTY_DATA } from '../constants/property.constants';
+import { GET_PROPERTY_DATA, ADDED_TO_FAVES } from '../constants/property.constants';
 
 const initialState = {
   title: 'property details',
@@ -6,7 +6,8 @@ const initialState = {
   image: 'property image',
   summary: 'property summary',
   bedrooms: 0,
-  bathrooms: 0
+  bathrooms: 0,
+  isAddedToFaves: false
 };
 
 export const propertyReducer = (state = initialState, action) => {
@@ -20,6 +21,12 @@ export const propertyReducer = (state = initialState, action) => {
       summary: action.payload.summary,
       bedrooms: action.payload.bedroom_number || action.payload.bedrooms,
       bathrooms: action.payload.bathroom_number || action.payload.bathrooms
+    };
+
+  case ADDED_TO_FAVES:
+    return {
+      ...state,
+      isAddedToFaves: action.payload
     };
 
   default: return state;
