@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Locations from '../components/locations/Locations.jsx';
 import * as locations from '../actions/locationActions';
 
-const mapStateToProps = state => ({ // здесь сделай так же как в PropertyDetails
+const mapStateToProps = state => ({
   getStatus: state.locations.title,
   locationsArray: state.locations.locations,
   searchInputValue: state.locations.searchedValue,

@@ -9,16 +9,10 @@ export const RealtyItemComponent = props => {
     props.getData(props);
   };
 
-  const showData = () => props.price_formatted || props.price;
-  const showImg = () => props.img_url || props.image;
-
   return (
-    <Link to={`${props.match.url}/${props.title}`}
-      className={styles.item}
-      onClick={pushData}
-    >
-      <img src={showImg()} className={styles.itemImg} />
-      <span className={styles.itemPrice}>{showData()}</span>
+    <Link to={`${props.match.url}/${props.title}`} className={styles.item} onClick={pushData}>
+      <img src={props.img_url} className={styles.itemImg} />
+      <span className={styles.itemPrice}>{props.price_formatted}</span>
       <span className={styles.itemTitle}>{props.title.toLowerCase()}</span>
     </Link>
   );
