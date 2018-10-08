@@ -27,7 +27,6 @@ export default class PropertyDetails extends Component {
 
       this.props.onAddToFavesButton(this.props);
       this.props.addedToFaves(true);
-      console.log(this.props);
 
       localStorage.setItem(
         FAVORITES,
@@ -51,7 +50,6 @@ export default class PropertyDetails extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className={styles.pageContainer}>
         <header className={styles.pageHeader}>
