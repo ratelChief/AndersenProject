@@ -31,17 +31,17 @@ export class Form extends React.Component {
     </Link>
 
   render() {
-    console.log(this.props);
+    const { locations, recentSearches, title } = this.props;
 
-    // const locationList =
-    // this.props.locations.map(
-    //   location => this.getItem(location.title)
-    // );
-    //
-    // const recentSearchesList =
-    // this.props.recentSearches.map(
-    //   search => this.getItem(`${search.searchBy}`, `(${search.length})`)
-    // );
+    const locationList =
+    locations.map(
+      location => this.getItem(location.title)
+    );
+
+    const recentSearchesList =
+    recentSearches.map(
+      search => this.getItem(`${search.searchBy}`, `(${search.length})`)
+    );
 
     return (
       <form className={styles.pageForm}>
@@ -64,9 +64,9 @@ export class Form extends React.Component {
           My location
         </button>
 
-        <span className={styles.statusbar}>{this.props.title}</span>
+        <span className={styles.statusbar}>{title}</span>
         <fieldset className={styles.results}>
-          {/* {locationList.length ? locationList : recentSearchesList} */}
+          {locationList.length ? locationList : recentSearchesList}
         </fieldset>
       </form>
     );

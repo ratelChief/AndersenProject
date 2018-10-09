@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import Locations from '../components/locations/Locations.jsx';
-import { fetchLocationAction, fetchMyLocationAction, setToIitialState } from '../actions/locationActions';
+import { setToIitialState } from '../actions/locationActions';
 
 const mapStateToProps = ({
   locations: {
