@@ -11,6 +11,9 @@ const mapStateToProps = ({
     summary,
     bathrooms,
     bedrooms
+  },
+  favorites: {
+    data: favorites
   }
 }) => ({
   title,
@@ -18,11 +21,12 @@ const mapStateToProps = ({
   image,
   summary,
   bathrooms,
-  bedrooms
+  bedrooms,
+  listOfFavorites: favorites
 });
 
 const mapDispatchToProps = {
-  onAddToFavesButton: setToFavorites
+  addToFaves: setToFavorites
 };
 
 export default connect(

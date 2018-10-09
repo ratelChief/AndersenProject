@@ -4,10 +4,13 @@ import { Favorites } from '../components/favorites/Favorites.jsx';
 import { setToInitialState } from '../actions/favoritesAction.js';
 import { getPropertyData } from '../actions/propertyActions.js';
 
+import { FAVORITES } from '../constants/favorites.constants.js';
 
-const mapStateToProps = state => ({
-  searchResults: state.favorites.favorites,
-  totalResults: state.favorites.favorites.length
+
+const mapStateToProps = ({ favorites }) => ({
+  searchResults: favorites.data,
+  totalResults: favorites.data.length,
+  listOfFavorites: JSON.parse(localStorage.getItem(FAVORITES))
 });
 
 const mapDispatchToProps = {
