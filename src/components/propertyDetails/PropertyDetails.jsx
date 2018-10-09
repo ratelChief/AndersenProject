@@ -9,6 +9,7 @@ export default class PropertyDetails extends Component {
   showBedrooms = () => this.props.bedrooms || 0;
 
   addToFaves = () => {
+    console.log(this.props);
 
     if (JSON.parse(localStorage.getItem(FAVORITES)).length === 0) {
       this.props.onAddToFavesButton(this.props);
@@ -45,6 +46,9 @@ export default class PropertyDetails extends Component {
   }
 
   render() {
+
+    const { price, title, image, summary } = this.props;
+
     return (
       <div className={styles.pageContainer}>
         <header className={styles.pageHeader}>
@@ -52,13 +56,13 @@ export default class PropertyDetails extends Component {
           {this.showAddToFaves()}
         </header>
         <div className={styles.pagePrimary}>
-          <span className={styles.itemPrice}>{this.props.price}</span>
-          <span className={styles.itemTitle}>{this.props.title.toLowerCase()}</span>
-          <img src={this.props.image} className={styles.itemImg} />
+          <span className={styles.itemPrice}>{price}</span>
+          <span className={styles.itemTitle}>{title.toLowerCase()}</span>
+          <img src={image} className={styles.itemImg} />
         </div>
         <div className={styles.pageSummary}>
           <span className={styles.itemInfo}>{`${this.showBedrooms()} bed, ${this.showBathrooms()} bathrooms`}</span>
-          <p className={styles.itemSummary}> {this.props.summary}</p>
+          <p className={styles.itemSummary}> {summary}</p>
         </div>
       </div>
     );

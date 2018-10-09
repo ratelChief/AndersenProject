@@ -8,8 +8,11 @@ const initialState = {
   totalResults: 0
 };
 
-export const realtyReducer = (state = initialState, action) => {
-  switch (action.type) {
+export const realtyReducer = (state = initialState, {
+  type,
+  payload
+}) => {
+  switch (type) {
 
   case FETCH_REALTY_LIST:
     return {
@@ -22,8 +25,8 @@ export const realtyReducer = (state = initialState, action) => {
       ...state,
       fetching: false,
       fetched: true,
-      searchResults: action.payload.response.listings,
-      totalResults: action.payload.response.total_results
+      searchResults: payload.response.listings,
+      totalResults: payload.response.total_results
     };
   default: return state;
   }

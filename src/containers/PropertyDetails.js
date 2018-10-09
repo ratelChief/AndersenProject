@@ -1,19 +1,28 @@
 import { connect } from 'react-redux';
 
 import PropertyDetails from '../components/propertyDetails/PropertyDetails.jsx';
-import * as faves from '../actions/favoritesAction';
+import { setToFavorites } from '../actions/favoritesAction';
 
-const mapStateToProps = state => ({
-  title: state.property.title,
-  price: state.property.price,
-  image: state.property.image,
-  summary: state.property.summary,
-  bathrooms: state.property.bathrooms,
-  bedrooms: state.property.bedrooms
+const mapStateToProps = ({
+  property: {
+    title,
+    price,
+    image,
+    summary,
+    bathrooms,
+    bedrooms
+  }
+}) => ({
+  title,
+  price,
+  image,
+  summary,
+  bathrooms,
+  bedrooms
 });
 
 const mapDispatchToProps = {
-  onAddToFavesButton: faves.setToFavorites
+  onAddToFavesButton: setToFavorites
 };
 
 export default connect(

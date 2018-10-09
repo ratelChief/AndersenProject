@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 
 import { Favorites } from '../components/favorites/Favorites.jsx';
-import * as faves from '../actions/favoritesAction.js';
-import * as property from '../actions/propertyActions.js';
+import { setToInitialState } from '../actions/favoritesAction.js';
+import { getPropertyData } from '../actions/propertyActions.js';
 
 
 const mapStateToProps = state => ({
@@ -12,8 +12,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   getRealtyList: () => {},
-  getData: property.getPropertyData,
-  setInitState: faves.setToIitialState
+  getData: getPropertyData,
+  setToInitialState
 };
 
 export default connect(

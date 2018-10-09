@@ -10,8 +10,11 @@ const initialState = {
   recentSearches: JSON.parse(localStorage.getItem(RECENT_SEARCHES)) || []
 };
 
-export const locationsReducer = (state = initialState, action) => {
-  switch (action.type) {
+export const locationsReducer = (state = initialState, {
+  type,
+  payload
+}) => {
+  switch (type) {
 
   case FETCH_LOCATIONS:
     return {
@@ -24,17 +27,17 @@ export const locationsReducer = (state = initialState, action) => {
       ...state,
       fetching: false,
       fetched: true,
-      locations: action.payload.response.locations,
-      searchResults: action.payload.response.listings,
+      locations: payload.response.locations,
+      searchResults: payload.response.listings,
       title: 'Please select a location below:',
-      searchedValue: action.payload.request.location
+      searchedValue: payload.request.location
     };
 
   case FETCH_LOCATIONS_ERROR:
     return {
       ...state,
       fetching: false,
-      error: action.payload,
+      error: payload,
       title: 'There was a problem with your search'
     };
 
@@ -43,7 +46,7 @@ export const locationsReducer = (state = initialState, action) => {
       ...state,
       fetching: false,
       fetched: true,
-      locations: action.payload.response.locations,
+      locations: payload.response.locations,
       title: 'Please select a location below:'
     };
 

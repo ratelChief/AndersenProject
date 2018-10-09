@@ -9,17 +9,20 @@ const initialState = {
   bathrooms: 0
 };
 
-export const propertyReducer = (state = initialState, action) => {
-  switch (action.type) {
+export const propertyReducer = (state = initialState, {
+  type,
+  payload
+}) => {
+  switch (type) {
   case GET_PROPERTY_DATA:
     return {
       ...state,
-      title: action.payload.title,
-      price: action.payload.price_formatted || action.payload.price,
-      image: action.payload.img_url || action.payload.image,
-      summary: action.payload.summary,
-      bedrooms: action.payload.bedroom_number || action.payload.bedrooms,
-      bathrooms: action.payload.bathroom_number || action.payload.bathrooms
+      title: payload.title,
+      price: payload.price_formatted || payload.price,
+      image: payload.img_url || payload.image,
+      summary: payload.summary,
+      bedrooms: payload.bedroom_number || payload.bedrooms,
+      bathrooms: payload.bathroom_number || payload.bathrooms
     };
 
   default: return state;

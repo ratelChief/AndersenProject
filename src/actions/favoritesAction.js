@@ -5,6 +5,6 @@ export const setToFavorites = data => ({
   payload: data
 });
 
-export const setToIitialState = () => ({
+export const setToInitialState = () => ({
   type: SET_TO_INITIAL_STATE
 });

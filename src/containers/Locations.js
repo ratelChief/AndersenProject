@@ -1,20 +1,27 @@
 import { connect } from 'react-redux';
 
 import Locations from '../components/locations/Locations.jsx';
-import * as locations from '../actions/locationActions';
+import { fetchLocationAction, fetchMyLocationAction, setToIitialState } from '../actions/locationActions';
 
-const mapStateToProps = state => ({
-  getStatus: state.locations.title,
-  locationsArray: state.locations.locations,
-  searchInputValue: state.locations.searchedValue,
-  recentSearches: state.locations.recentSearches,
-  searchResults: state.locations.searchResults
+const mapStateToProps = ({
+  locations: {
+    title,
+    locations,
+    searchedValue,
+    recentSearches,
+    searchResults
+  } }) => ({
+  getStatus: title,
+  locationsArray: locations,
+  searchInputValue: searchedValue,
+  recentSearches,
+  searchResults
 });
 
 const mapDispatchToProps = {
-  onGoButton: locations.fetchLocationAction,
-  onMyLocationButton: locations.fetchMyLocationAction,
-  setInitState: locations.setToIitialState
+  onGoButton: fetchLocationAction,
+  onMyLocationButton: fetchMyLocationAction,
+  setInitState: setToIitialState
 };
 
 export default connect(

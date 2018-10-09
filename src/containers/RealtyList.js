@@ -1,17 +1,22 @@
 import { connect } from 'react-redux';
 
 import RealtyList from '../components/realtyList/RealtyList.jsx';
-import * as realty from '../actions/realtyActions';
-import * as property from '../actions/propertyActions';
+import { fetchRealtyAction } from '../actions/realtyActions';
+import { getPropertyData } from '../actions/propertyActions';
 
-const mapStateToProps = state => ({
-  searchResults: state.realty.searchResults,
-  totalResults: state.realty.totalResults
+const mapStateToProps = ({
+  realty: {
+    searchResults,
+    totalResults
+  }
+}) => ({
+  searchResults,
+  totalResults
 });
 
 const mapDispatchToProps = {
-  getRealtyList: realty.fetchRealtyAction,
-  getData: property.getPropertyData
+  getRealtyList: fetchRealtyAction,
+  getData: getPropertyData
 };
 
 export default connect(
