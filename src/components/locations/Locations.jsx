@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import uuidv4 from 'uuid/v4';
 
 import { RECENT_SEARCHES } from '../../constants/location.constants';
 
@@ -35,45 +33,12 @@ export default class App extends Component {
   componentWillUnmount() {
     this.props.setInitState();
   }
-
-  getItem = (value1, value2 = '') =>
-    <Link to={`/realty/${value1}`}
-      className={styles.locationItem}
-      key={uuidv4()}
-    >
-      {value1 + value2}
-    </Link>
-
-
   render() {
-    const {
-      getStatus,
-      onGoButton,
-      locationsArray,
-      onMyLocationButton,
-      recentSearches
-    } = this.props;
-
-    const locationList =
-    locationsArray.map(
-      location => this.getItem(location.title)
-    );
-
-    const recentSearchesList =
-    recentSearches.map(
-      search => this.getItem(`${search.searchBy}`, `(${search.length})`)
-    );
 
     return (
       <div className={styles.pageContainer}>
         <Header />
-        <Main
-          data={ getStatus }
-          onGoButton={ onGoButton }
-          locationList={ locationList }
-          onMyLocationButton={ onMyLocationButton }
-          recentSearches={ recentSearchesList }
-        />
+        <Main />
       </div>
     );
   }

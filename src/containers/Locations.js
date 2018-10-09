@@ -11,9 +11,9 @@ const mapStateToProps = ({
     recentSearches,
     searchResults
   } }) => ({
-  getStatus: title,
-  locationsArray: locations,
-  searchInputValue: searchedValue,
+  title,
+  locations,
+  searchedValue,
   recentSearches,
   searchResults
 });

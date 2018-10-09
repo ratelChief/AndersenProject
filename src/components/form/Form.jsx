@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import uuidv4 from 'uuid/v4';
 import styles from './Form.less';
 
 export class Form extends React.Component {
@@ -20,8 +22,26 @@ export class Form extends React.Component {
     });
   }
 
+  getItem = (value1, value2 = '') =>
+    <Link to={`/realty/${value1}`}
+      className={styles.locationItem}
+      key={uuidv4()}
+    >
+      {value1 + value2}
+    </Link>
+
   render() {
     console.log(this.props);
+
+    // const locationList =
+    // this.props.locations.map(
+    //   location => this.getItem(location.title)
+    // );
+    //
+    // const recentSearchesList =
+    // this.props.recentSearches.map(
+    //   search => this.getItem(`${search.searchBy}`, `(${search.length})`)
+    // );
 
     return (
       <form className={styles.pageForm}>
@@ -44,9 +64,9 @@ export class Form extends React.Component {
           My location
         </button>
 
-        <span className={styles.statusbar}>{this.props.data}</span>
+        <span className={styles.statusbar}>{this.props.title}</span>
         <fieldset className={styles.results}>
-          {this.props.locationList.length ? this.props.locationList : this.props.recentSearches}
+          {/* {locationList.length ? locationList : recentSearchesList} */}
         </fieldset>
       </form>
     );
