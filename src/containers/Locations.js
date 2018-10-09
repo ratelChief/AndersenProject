@@ -19,8 +19,6 @@ const mapStateToProps = ({
 });
 
 const mapDispatchToProps = {
-  onGoButton: fetchLocationAction,
-  onMyLocationButton: fetchMyLocationAction,
   setInitState: setToIitialState
 };
 
