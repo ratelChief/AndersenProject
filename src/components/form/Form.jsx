@@ -20,14 +20,8 @@ export class Form extends React.Component {
     });
   }
 
-  renderResults = () => {
-    if (this.props.locationList.length) {
-      return [...new Set(this.props.locationList)];
-    }
-    return [...new Set(this.props.recentSearches)];
-  }
-
   render() {
+    console.log(this.props);
 
     return (
       <form className={styles.pageForm}>
@@ -47,7 +41,9 @@ export class Form extends React.Component {
           My location
         </button>
         <span className={styles.statusbar}>{this.props.data}</span>
-        <fieldset className={styles.results}>{this.renderResults()}</fieldset>
+        <fieldset className={styles.results}>
+          {this.props.locationList.length ? this.props.locationList : this.props.recentSearches}
+        </fieldset>
       </form>
     );
 
