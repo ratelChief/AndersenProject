@@ -11,27 +11,27 @@ export default class App extends Component {
 
   state = {};
 
-  static getDerivedStateFromProps(nextProps, prevState) {
+  static getDerivedStateFromProps({ searchedValue, locations }, prevState) {
     if (
-      nextProps.searchInputValue &&
-      nextProps.searchInputValue !== prevState.searchInputValue) {
+      searchedValue &&
+      searchedValue !== prevState.searchedValue) {
       localStorage.setItem(
         RECENT_SEARCHES,
         JSON.stringify(
           [...JSON.parse(localStorage.getItem(RECENT_SEARCHES)),
             {
-              searchBy: nextProps.searchInputValue,
-              length: nextProps.locationsArray.length
+              searchBy: searchedValue,
+              length: locations.length
             }
           ])
       );
-      return { searchInputValue: nextProps.searchInputValue };
+      return { searchedValue };
     }
     return null;
   }
 
   componentWillUnmount() {
-    this.props.setInitState();
+    this.props.setToInitialState();
   }
   render() {
 

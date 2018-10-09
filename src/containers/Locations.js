@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import Locations from '../components/locations/Locations.jsx';
-import { setToIitialState } from '../actions/locationActions';
+import { setToInitialState } from '../actions/locationActions';
 
 const mapStateToProps = ({
   locations: {
@@ -19,7 +19,7 @@ const mapStateToProps = ({
 });
 
 const mapDispatchToProps = {
-  setInitState: setToIitialState
+  setToInitialState
 };
 
 export default connect(

@@ -11,6 +11,6 @@ export const fetchMyLocationAction = locationData => ({
  fetch(`http://api.nestoria.co.uk/api?country=uk&pretty=1&action=search_listings&encoding=json&listing_type=buy&page=1&centre_point=${locationData.latitude},${locationData.longitude}`)
 });
 
-export const setToIitialState = () => ({
+export const setToInitialState = () => ({
   type: SET_TO_INITIAL_STATE
 });
