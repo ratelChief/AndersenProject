@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import { RECENT_SEARCHES } from '../../constants/location.constants';
 
+import { saveToLocalStorage } from '../../utils.js';
+
 import styles from './Locations.less';
 
 import { Header } from '../header/Header.jsx';
@@ -15,16 +17,16 @@ export default class App extends Component {
     if (
       searchedValue &&
       searchedValue !== prevState.searchedValue) {
-      localStorage.setItem(
-        RECENT_SEARCHES,
-        JSON.stringify(
-          [...JSON.parse(localStorage.getItem(RECENT_SEARCHES)),
-            {
-              searchBy: searchedValue,
-              length: locations.length
-            }
-          ])
-      );
+
+      const addedinfo = {
+        searchBy: searchedValue,
+        length: locations.length
+      };
+
+      saveToLocalStorage(RECENT_SEARCHES, [
+        ...JSON.parse(localStorage.getItem(RECENT_SEARCHES))
+      ], addedinfo);
+
       return { searchedValue };
     }
     return null;
