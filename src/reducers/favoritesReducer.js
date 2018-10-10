@@ -1,9 +1,9 @@
 import { SET_TO_FAVORITES, FAVORITES, SET_TO_INITIAL_STATE } from '../constants/favorites.constants.js';
 
-import { saveToLocalStorage } from '../utils.js';
+import { saveToLocalStorage, getFromLocalStorage } from '../utils.js';
 
 const initialState = {
-  data: JSON.parse(localStorage.getItem(FAVORITES))
+  data: getFromLocalStorage(FAVORITES)
 };
 
 export const favoritesReducer = (state = initialState, action) => {
@@ -23,7 +23,7 @@ export const favoritesReducer = (state = initialState, action) => {
 
   case SET_TO_INITIAL_STATE:
     return {
-      data: JSON.parse(localStorage.getItem(FAVORITES))
+      data: getFromLocalStorage(FAVORITES)
     };
 
   default: return state;

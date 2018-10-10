@@ -8,5 +8,5 @@ export function saveToLocalStorage(constant, state, payload) {
 }
 
 export function getFromLocalStorage(constant) {
-  JSON.parse(localStorage.getItem(constant));
+  return JSON.parse(localStorage.getItem(constant));
 }

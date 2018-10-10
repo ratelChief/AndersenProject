@@ -1,5 +1,7 @@
 import { FETCH_LOCATIONS, FETCH_LOCATIONS_SUCCESS, FETCH_LOCATIONS_ERROR, RECENT_SEARCHES, FETCH_MY_LOCATION_SUCCESS, SET_TO_INITIAL_STATE } from '../constants/location.constants';
 
+import { getFromLocalStorage } from '../utils.js';
+
 const initialState = {
   fetching: false,
   fetched: false,
@@ -7,7 +9,7 @@ const initialState = {
   locations: [],
   title: 'Recent searches:',
   searchedValue: '',
-  recentSearches: JSON.parse(localStorage.getItem(RECENT_SEARCHES)) || []
+  recentSearches: getFromLocalStorage(RECENT_SEARCHES) || []
 };
 
 export const locationsReducer = (state = initialState, {
@@ -59,7 +61,7 @@ export const locationsReducer = (state = initialState, {
       locations: [],
       title: 'Recent searches:',
       searchedValue: '',
-      recentSearches: JSON.parse(localStorage.getItem(RECENT_SEARCHES)) || []
+      recentSearches: getFromLocalStorage(RECENT_SEARCHES) || []
     };
 
   default: return state;

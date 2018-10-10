@@ -5,12 +5,13 @@ import { setToInitialState } from '../actions/favoritesAction.js';
 import { getPropertyData } from '../actions/propertyActions.js';
 
 import { FAVORITES } from '../constants/favorites.constants.js';
+import { getFromLocalStorage } from '../utils.js';
 
 
 const mapStateToProps = ({ favorites }) => ({
   searchResults: favorites.data,
   totalResults: favorites.data.length,
-  listOfFavorites: JSON.parse(localStorage.getItem(FAVORITES))
+  listOfFavorites: getFromLocalStorage(FAVORITES)
 });
 
 const mapDispatchToProps = {
