@@ -9,7 +9,7 @@ import styles from './Locations.less';
 import { Header } from '../header/Header.jsx';
 import { Main } from '../main/Main.jsx';
 
-export default class App extends Component {
+export default class Locations extends Component {
 
   state = {};
 
