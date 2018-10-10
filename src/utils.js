@@ -6,3 +6,7 @@ export function saveToLocalStorage(constant, state, payload) {
 
   localStorage.setItem(constant, stringifyData);
 }
+
+export function getFromLocalStorage(constant) {
+  JSON.parse(localStorage.getItem(constant));
+}

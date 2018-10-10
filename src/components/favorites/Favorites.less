@@ -1,0 +1,16 @@
+.page-container {
+  display: grid;
+  grid-auto-columns: 100%;
+  grid-template-rows: 10% 90%;
+  grid-template-areas:
+  'title'
+  'content';
+   padding-top: 10px;
+   .page-title {
+    grid-area: title;
+     margin:auto;
+   }
+  .page-content {
+    grid-area: content;
+  }
+}
