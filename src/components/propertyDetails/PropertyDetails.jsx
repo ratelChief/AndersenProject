@@ -8,7 +8,15 @@ export default class PropertyDetails extends Component {
   };
 
   render() {
-    const { price, title, bathrooms, bedrooms, image, summary, listOfFavorites } = this.props;
+    const {
+      price,
+      title,
+      bathrooms,
+      bedrooms,
+      image,
+      summary,
+      listOfFavorites
+    } = this.props;
 
     const notExistInFaves = !listOfFavorites.find(
       ({ title }) => title === this.props.title

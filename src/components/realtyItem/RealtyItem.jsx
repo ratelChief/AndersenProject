@@ -5,7 +5,14 @@ import { withRouter } from 'react-router-dom';
 import styles from '../realtyList/RealtyList.less';
 
 export const RealtyItemComponent = props => {
-  const { getData, price_formatted: priceFormatted, price, img_url: imgUrl, image, title } = props;
+  const {
+    getData,
+    price_formatted: priceFormatted,
+    price,
+    img_url: imgUrl,
+    image,
+    title
+  } = props;
 
   const pushData = () => {
     getData(props);
