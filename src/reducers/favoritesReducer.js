@@ -10,7 +10,7 @@ export const favoritesReducer = (state = initialState, action) => {
   switch (action.type) {
   case SET_TO_FAVORITES: {
 
-    saveToLocalStorage(state, action.payload);
+    saveToLocalStorage(FAVORITES, state.data, action.payload);
 
     return {
       ...state,

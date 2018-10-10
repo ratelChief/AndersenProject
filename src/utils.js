@@ -1,10 +1,8 @@
-import { FAVORITES } from './constants/favorites.constants.js';
-
-export function saveToLocalStorage(state, payload) {
+export function saveToLocalStorage(constant, state, payload) {
   const stringifyData = JSON.stringify([
     ...state,
     payload
   ]);
 
-  localStorage.setItem(FAVORITES, stringifyData);
+  localStorage.setItem(constant, stringifyData);
 }
