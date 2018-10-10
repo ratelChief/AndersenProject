@@ -5,15 +5,27 @@ import { withRouter } from 'react-router-dom';
 import styles from '../realtyList/RealtyList.less';
 
 export const RealtyItemComponent = props => {
+  const {
+    getData,
+    price_formatted: priceFormatted,
+    price,
+    img_url: imgUrl,
+    image,
+    title
+  } = props;
+
   const pushData = () => {
-    props.getData(props);
+    getData(props);
   };
 
   return (
-    <Link to={`${props.match.url}/${props.title}`} className={styles.item} onClick={pushData}>
-      <img src={props.img_url} className={styles.itemImg} />
-      <span className={styles.itemPrice}>{props.price_formatted}</span>
-      <span className={styles.itemTitle}>{props.title.toLowerCase()}</span>
+    <Link to={`${props.match.url}/${props.title}`}
+      className={styles.item}
+      onClick={pushData}
+    >
+      <img src={imgUrl ? imgUrl : image} className={styles.itemImg} />
+      <span className={styles.itemPrice}>{priceFormatted ? priceFormatted : price }</span>
+      <span className={styles.itemTitle}>{title.toLowerCase()}</span>
     </Link>
   );
 

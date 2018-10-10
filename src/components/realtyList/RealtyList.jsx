@@ -7,18 +7,28 @@ import styles from './RealtyList.less';
 
 export default class RealtyList extends Component {
   componentDidMount() {
-    this.props.getRealtyList(this.props.match.params.item);
+
+    const { getRealtyList, match } = this.props;
+
+    if (getRealtyList) {
+      getRealtyList(match.params.item);
+    }
   }
 
   render() {
+    const { searchResults, totalResults, getData } = this.props;
 
     return (
       <div className={styles.itemsContainer}>
         <p className={styles.matchStatus}>
-          {this.props.searchResults.length} of {this.props.totalResults} matches
+          {searchResults.length} of {totalResults} matches
         </p>
-        {this.props.searchResults.map(result =>
-          <RealtyItem key={uuidv4()} {...result} getData={this.props.getData} />
+        {searchResults.map(result =>
+          <RealtyItem
+            key={uuidv4()}
+            {...result}
+            getData={getData}
+          />
         )}
       </div>
     );

@@ -2,23 +2,44 @@ import React, { Component } from 'react';
 import styles from './PropertyDetails.less';
 
 export default class PropertyDetails extends Component {
-  showBathrooms = () => this.props.bathrooms || 0;
+
+  addToFaves = () => {
+    this.props.addToFaves(this.props);
+  };
 
   render() {
+    const {
+      price,
+      title,
+      bathrooms,
+      bedrooms,
+      image,
+      summary,
+      listOfFavorites
+    } = this.props;
+
+    const notExistInFaves = !listOfFavorites.find(
+      ({ title }) => title === this.props.title
+    );
+
     return (
       <div className={styles.pageContainer}>
         <header className={styles.pageHeader}>
           <h3 className={styles.pageTitle}>Property Details</h3>
-          <button className={styles.btnFaves}>+</button>
+          { notExistInFaves ? (
+            <button className={styles.btnFaves} onClick={this.addToFaves}>+</button>
+          ) : null}
         </header>
         <div className={styles.pagePrimary}>
-          <span className={styles.itemPrice}>{this.props.price}</span>
-          <span className={styles.itemTitle}>{this.props.title.toLowerCase()}</span>
-          <img src={this.props.image} className={styles.itemImg} />
+          <span className={styles.itemPrice}>{price}</span>
+          <span className={styles.itemTitle}>{title.toLowerCase()}</span>
+          <img src={image} className={styles.itemImg} />
         </div>
         <div className={styles.pageSummary}>
-          <span className={styles.itemInfo}>{`${this.props.bedrooms} bed, ${this.showBathrooms()} bathrooms`}</span>
-          <p className={styles.itemSummary}> {this.props.summary}</p>
+          <span className={styles.itemInfo}>
+            {`${bedrooms ? bedrooms : 0} bed, ${bathrooms ? bathrooms : 0} bathrooms`}
+          </span>
+          <p className={styles.itemSummary}>{summary}</p>
         </div>
       </div>
     );
