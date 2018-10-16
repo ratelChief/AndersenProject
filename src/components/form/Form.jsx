@@ -52,13 +52,13 @@ export class Form extends React.Component {
         />
 
         <button type='button'
-          className={`${styles.btn} ${styles.search}`}
+          className={`${styles.btn} ${styles.btnSearch}`}
           onClick={this.onGoButtonClick}
         >Go
         </button>
 
         <button type='button'
-          className={`${styles.btn} ${styles.location}`}
+          className={`${styles.btn} ${styles.btnLocation}`}
           onClick={this.onMyLocationClick}
         >
           My location

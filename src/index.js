@@ -7,7 +7,7 @@ import Locations from './containers/Locations';
 import RealtyList from './containers/RealtyList';
 import PropertyDetails from './containers/propertyDetails';
 import Favorites from './containers/Favorites';
-import { TodoList } from './containers/TodoList';
+import TodoList from './containers/TodoList';
 
 import store from './store/configureStore';
 import { RECENT_SEARCHES } from './constants/location.constants';
@@ -27,7 +27,7 @@ render(
     <BrowserRouter>
       <Switch>
         <Route exact path='/' component={Locations} />
-        <Route exact path='/todolist' component={TodoList} />
+        <Route path='/todolist' component={TodoList} />
         <Route exact path='/realty/:item' component={RealtyList} />
         <Route path='/realty/:item/:name' component={PropertyDetails} />
         <Route exact path='/:fav' component={Favorites} />

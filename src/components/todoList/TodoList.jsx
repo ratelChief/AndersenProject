@@ -2,20 +2,16 @@ import React from 'react';
 
 export class TodoList extends React.Component {
 
-  componentDidMount() {
-    console.log('mounted');
-  }
-
   render() {
 
-    const btnAdd = '+';
-    const btnRemove = '-';
+    const btnAdd = <button>+</button>;
+    const btnRemove = <button>-</button>;
 
     return (
       <div>
-        <input type='text' />
+        <input type='text' /> {btnAdd}
         <ul>
-          <li>value{btnAdd}{btnRemove}</li>
+          <li>value{btnRemove}</li>
         </ul>
       </div>
     );

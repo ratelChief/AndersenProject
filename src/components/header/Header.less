@@ -3,8 +3,8 @@
 
   display: grid;
   grid-template-areas: ". logo todo fav";
-  grid-template-columns: 5% auto 50px 50px;
-  grid-row-gap: 5px;
+  grid-template-columns: 125px auto 65px 60px;
+  grid-column-gap: 5px;
 
   .page-logo {
     grid-area: logo;
@@ -27,6 +27,8 @@
     background: rgb(245,245,245) linear-gradient(#f4f4f4, #f1f1f1);
     transition: all .218s ease 0s;
     outline:none;
+
+    box-sizing: border-box;
 
     &:hover {
       color: rgb(24,24,24);
