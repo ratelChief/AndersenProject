@@ -9,7 +9,10 @@ export const todoListReducer = (state = initialState, action) => {
   case ADD_TODO:
     return {
       ...state,
-      todoList: action.payload
+      todoList: [
+        ...state.todoList,
+        action.payload
+      ]
     };
 
   case REMOVE_TODO:

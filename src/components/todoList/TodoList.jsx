@@ -2,14 +2,21 @@ import React from 'react';
 
 export class TodoList extends React.Component {
 
-  render() {
+  onInputChange = evt => {
+    const value = evt.target.value;
+  };
 
-    const btnAdd = <button>+</button>;
+  onAddBtn = () => {
+
+  }
+
+  render() {
+    const btnAdd = <button onClick={this.onAddBtn}>+</button>;
     const btnRemove = <button>-</button>;
 
     return (
       <div>
-        <input type='text' /> {btnAdd}
+        <input onChange={this.onInputChange} type='text' /> {btnAdd}
         <ul>
           <li>value{btnRemove}</li>
         </ul>
