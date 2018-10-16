@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { RECENT_SEARCHES } from '../../constants/location.constants';
 
-import { saveToLocalStorage, getFromLocalStorage } from '../../utils.js';
+import { saveToLocalStorage } from '../../utils.js';
 
 import styles from './Locations.less';
 

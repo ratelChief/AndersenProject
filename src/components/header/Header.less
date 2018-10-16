@@ -2,8 +2,8 @@
   grid-area: header;
 
   display: grid;
-  grid-template-areas: ". logo fav";
-  grid-template-columns: 5% auto 50px;
+  grid-template-areas: ". logo todo fav";
+  grid-template-columns: 5% auto 50px 50px;
   grid-row-gap: 5px;
 
   .page-logo {
@@ -13,11 +13,7 @@
     font-size: 18px;
   }
 
-  .btn-faves {
-    grid-area: fav;
-    justify-self: end;
-    align-self: center;
-
+  .btn {
     width:100%;
     padding: 5px;
     text-align: center;
@@ -31,11 +27,24 @@
     background: rgb(245,245,245) linear-gradient(#f4f4f4, #f1f1f1);
     transition: all .218s ease 0s;
     outline:none;
+
     &:hover {
       color: rgb(24,24,24);
       border: 1px solid rgb(198,198,198);
       background: #f7f7f7 linear-gradient(#f7f7f7, #f1f1f1);
       box-shadow: 0 1px 2px rgba(0,0,0,.1);
+    }
+
+    &-faves {
+      grid-area: fav;
+      justify-self: end;
+      align-self: center;
+    }
+
+    &-todo {
+      grid-area: todo;
+      justify-self: end;
+      align-self: center;
     }
   }
 }
