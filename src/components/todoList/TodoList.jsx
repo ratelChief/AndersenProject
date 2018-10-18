@@ -3,7 +3,9 @@ import uuidv4 from 'uuid/v4';
 
 export class TodoList extends React.Component {
 
-  state = { placeName: '' };
+  state = {
+    placeName: ''
+  };
 
   onInputChange = evt => {
     this.setState({
@@ -15,11 +17,17 @@ export class TodoList extends React.Component {
     this.props.addTodo(this.state.placeName);
   }
 
-  render() {
-    const btnAdd = <button onClick={this.onAddBtn}>+</button>;
-    const btnRemove = <button>-</button>;
+  onRemoveBtn = e => {
+    console.log(e.currentTarget.parentNode);
+    this.props.removeTodo(this.state.placeName);
+  }
 
-    const renderItem = this.props.todoList.map(item => <li key={uuidv4()}>{item}{btnRemove}</li>);
+  render() {
+    const { todoList } = this.props;
+    const btnAdd = <button onClick={this.onAddBtn}>+</button>;
+    const btnRemove = <button onClick={this.onRemoveBtn}>-</button>;
+
+    const renderItem = todoList.map(item => <li key={uuidv4()}>{item} {btnRemove} </li>);
 
     return (
       <div>
