@@ -17,9 +17,9 @@ export class TodoList extends React.Component {
     this.props.addTodo(this.state.placeName);
   }
 
-  onRemoveBtn = e => {
-    console.log(e.currentTarget.parentNode);
-    this.props.removeTodo(this.state.placeName);
+  onRemoveBtn = () => {
+    console.log(this);
+    this.props.removeTodo();
   }
 
   render() {
@@ -27,7 +27,7 @@ export class TodoList extends React.Component {
     const btnAdd = <button onClick={this.onAddBtn}>+</button>;
     const btnRemove = <button onClick={this.onRemoveBtn}>-</button>;
 
-    const renderItem = todoList.map(item => <li key={uuidv4()}>{item} {btnRemove} </li>);
+    const renderItem = todoList.map(item => <li key={uuidv4()}>{item} {btnRemove}</li>);
 
     return (
       <div>
