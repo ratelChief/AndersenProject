@@ -18,3 +18,9 @@ export function deleteFromLocalStorage(constant, state, payload) {
 
   localStorage.setItem(constant, stringifyData);
 }
+
+export function setInitialStateOfLocalStorage(constant) {
+  if (!localStorage.getItem(constant)) {
+    localStorage[constant] = JSON.stringify([]);
+  }
+}

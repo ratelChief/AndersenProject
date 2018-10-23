@@ -14,18 +14,11 @@ import { RECENT_SEARCHES } from './constants/location.constants';
 import { FAVORITES } from './constants/favorites.constants';
 import { TODOLIST } from './constants/todo.constants';
 
-if (!localStorage.getItem(RECENT_SEARCHES)) {
-  localStorage.recentSearches = JSON.stringify([]);
-}
+import { setInitialStateOfLocalStorage } from './utils.js';
 
-if (!localStorage.getItem(FAVORITES)) {
-  localStorage[FAVORITES] = JSON.stringify([]);
-}
-
-if (!localStorage.getItem(TODOLIST)) {
-  localStorage[TODOLIST] = JSON.stringify([]);
-}
-
+setInitialStateOfLocalStorage(RECENT_SEARCHES);
+setInitialStateOfLocalStorage(FAVORITES);
+setInitialStateOfLocalStorage(TODOLIST);
 
 render(
   <Provider store={store}>
