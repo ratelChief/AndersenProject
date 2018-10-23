@@ -17,7 +17,8 @@ export const todoListReducer = (state = initialState, action) => {
 
   case REMOVE_TODO:
     return {
-      ...state
+      ...state,
+      todoList: [...state.todoList.filter(todo => todo !== action.payload)]
     };
 
   default: return state;

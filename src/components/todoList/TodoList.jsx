@@ -17,17 +17,22 @@ export class TodoList extends React.Component {
     this.props.addTodo(this.state.placeName);
   }
 
-  onRemoveBtn = () => {
-    console.log(this);
-    this.props.removeTodo();
-  }
-
   render() {
-    const { todoList } = this.props;
+    const { todoList, removeTodo } = this.props;
     const btnAdd = <button onClick={this.onAddBtn}>+</button>;
-    const btnRemove = <button onClick={this.onRemoveBtn}>-</button>;
 
-    const renderItem = todoList.map(item => <li key={uuidv4()}>{item} {btnRemove}</li>);
+    const renderItem = todoList.map(item =>
+      <li key={uuidv4()}>
+        {item}
+        <button
+          onClick={() => {
+            removeTodo(item);
+          }}
+        >
+        -
+        </button>
+      </li>
+    );
 
     return (
       <div>
