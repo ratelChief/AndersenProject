@@ -1,6 +1,9 @@
 import React from 'react';
 import uuidv4 from 'uuid/v4';
 
+import { TODOLIST } from '../../constants/todo.constants';
+import { saveToLocalStorage } from '../../utils.js';
+
 export class TodoList extends React.Component {
 
   state = {
@@ -17,6 +20,8 @@ export class TodoList extends React.Component {
     this.props.addTodo(this.state.placeName);
   }
 
+
+
   render() {
     const { todoList, removeTodo } = this.props;
     const btnAdd = <button onClick={this.onAddBtn}>+</button>;
@@ -28,9 +33,7 @@ export class TodoList extends React.Component {
           onClick={() => {
             removeTodo(item);
           }}
-        >
-        -
-        </button>
+        >-</button>
       </li>
     );
 

@@ -12,6 +12,7 @@ import TodoList from './containers/TodoList';
 import store from './store/configureStore';
 import { RECENT_SEARCHES } from './constants/location.constants';
 import { FAVORITES } from './constants/favorites.constants';
+import { TODOLIST } from './constants/todo.constants';
 
 if (!localStorage.getItem(RECENT_SEARCHES)) {
   localStorage.recentSearches = JSON.stringify([]);
@@ -19,6 +20,10 @@ if (!localStorage.getItem(RECENT_SEARCHES)) {
 
 if (!localStorage.getItem(FAVORITES)) {
   localStorage[FAVORITES] = JSON.stringify([]);
+}
+
+if (!localStorage.getItem(TODOLIST)) {
+  localStorage[TODOLIST] = JSON.stringify([]);
 }
 
 
