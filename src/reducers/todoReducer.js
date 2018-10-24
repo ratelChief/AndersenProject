@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO, TODOLIST } from '../constants/todo.constants.js';
+import { ADD_TODO, REMOVE_TODO, TODO_LIST } from '../constants/todo.constants.js';
 
 import {
   saveToLocalStorage,
@@ -7,14 +7,14 @@ import {
 } from '../utils.js';
 
 const initialState = {
-  todoList: getFromLocalStorage(TODOLIST)
+  todoList: getFromLocalStorage(TODO_LIST)
 };
 
 export const todoListReducer = (state = initialState, action) => {
   switch (action.type) {
   case ADD_TODO:
 
-    saveToLocalStorage(TODOLIST, state.todoList, action.payload);
+    saveToLocalStorage(TODO_LIST, state.todoList, action.payload);
 
     return {
       ...state,
@@ -26,7 +26,7 @@ export const todoListReducer = (state = initialState, action) => {
 
   case REMOVE_TODO:
 
-    deleteFromLocalStorage(TODOLIST, state.todoList, action.payload);
+    deleteFromLocalStorage(TODO_LIST, state.todoList, action.payload);
 
     return {
       ...state,

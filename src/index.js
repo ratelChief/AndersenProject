@@ -12,13 +12,13 @@ import TodoList from './containers/TodoList';
 import store from './store/configureStore';
 import { RECENT_SEARCHES } from './constants/location.constants';
 import { FAVORITES } from './constants/favorites.constants';
-import { TODOLIST } from './constants/todo.constants';
+import { TODO_LIST } from './constants/todo.constants';
 
 import { setInitialStateOfLocalStorage } from './utils.js';
 
 setInitialStateOfLocalStorage(RECENT_SEARCHES);
 setInitialStateOfLocalStorage(FAVORITES);
-setInitialStateOfLocalStorage(TODOLIST);
+setInitialStateOfLocalStorage(TODO_LIST);
 
 render(
   <Provider store={store}>
