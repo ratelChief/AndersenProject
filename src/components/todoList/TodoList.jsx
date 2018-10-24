@@ -17,26 +17,28 @@ export class TodoList extends React.Component {
     this.props.addTodo(this.state.placeName);
   }
 
-  render() {
-    const { todoList, removeTodo } = this.props;
-    const btnAdd = <button onClick={this.onAddBtn}>+</button>;
+  btnAdd = () => (
+    <button onClick={this.onAddBtn}>+</button>
+  )
 
-    const renderItem = todoList.map(item =>
+  renderItems = () => (
+    this.props.todoList.map(item =>
       <li key={uuidv4()}>
         {item}
         <button
           onClick={() => {
-            removeTodo(item);
+            this.props.removeTodo(item);
           }}
         >-</button>
-      </li>
-    );
+      </li>)
+  )
 
+  render() {
     return (
       <div>
-        <input onChange={this.onInputChange} type='text' value={this.state.placeName} /> {btnAdd}
+        <input onChange={this.onInputChange} type='text' value={this.state.placeName} /> {this.btnAdd()}
         <ul>
-          {renderItem}
+          {this.renderItems()}
         </ul>
       </div>
     );
